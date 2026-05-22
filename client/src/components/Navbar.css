@@ -16,7 +16,7 @@
 
 .navbar__logo {
   font-family: var(--font-display);
-  font-size: 28px;
+  font-size: 22px;
   letter-spacing: 3px;
   color: var(--text);
   flex-shrink: 0;
@@ -36,9 +36,15 @@
 }
 .navbar__links a:hover { color: var(--text); }
 
-.navbar__right { margin-left: auto; }
+.navbar__right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-.navbar__search-toggle {
+/* ── Icon buttons ──────────────────────────────────────────── */
+.navbar__icon-btn {
   background: none;
   border: 1px solid var(--border);
   color: var(--text-muted);
@@ -50,9 +56,46 @@
   align-items: center;
   justify-content: center;
   transition: border-color var(--transition), color var(--transition);
+  cursor: pointer;
 }
-.navbar__search-toggle:hover { border-color: var(--border-hover); color: var(--text); }
+.navbar__icon-btn:hover { border-color: var(--border-hover); color: var(--text); }
 
+/* ── Hamburger — hidden on desktop ────────────────────────── */
+.navbar__hamburger {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  transition: border-color var(--transition), color var(--transition);
+}
+.navbar__hamburger:hover { border-color: var(--border-hover); color: var(--text); }
+
+.navbar__hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 16px;
+}
+.navbar__hamburger-icon span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--text-muted);
+  border-radius: 2px;
+  transition: background var(--transition);
+}
+.navbar__hamburger:hover .navbar__hamburger-icon span {
+  background: var(--text);
+}
+
+/* ── Search bar ────────────────────────────────────────────── */
 .navbar__search-bar {
   border-top: 1px solid var(--border);
   background: var(--bg-card);
@@ -85,10 +128,38 @@
   border-radius: var(--radius-sm);
   font-size: 13px;
   font-weight: 500;
+  cursor: pointer;
   transition: background var(--transition);
 }
 .navbar__search-bar button:hover { background: var(--accent-dark); }
 
+/* ── Mobile menu ───────────────────────────────────────────── */
+.navbar__mobile-menu {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  padding: 8px 0 16px;
+  animation: fadeUp 0.2s ease both;
+}
+.navbar__mobile-menu a {
+  padding: 12px 24px;
+  font-size: 15px;
+  color: var(--text-muted);
+  transition: color var(--transition), background var(--transition);
+}
+.navbar__mobile-menu a:hover {
+  color: var(--text);
+  background: var(--bg-raised);
+}
+.navbar__mobile-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 8px 24px;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
 @media (max-width: 680px) {
-  .navbar__links { display: none; }
+  .navbar__links    { display: none; }
+  .navbar__hamburger { display: flex; }
 }

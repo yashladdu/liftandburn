@@ -49,18 +49,16 @@ export default function HomePage() {
 
           <div className="hero__stats fade-up-3">
             <div className="hero__stat">
-              <span className="hero__stat-num">
-                {latest?.pagination?.total ?? '—'}
-              </span>
+              <span className="hero__stat-num">48+</span>
+              <span className="hero__stat-label">Programs</span>
+            </div>
+            <div className="hero__stat">
+              <span className="hero__stat-num">120+</span>
               <span className="hero__stat-label">Articles</span>
             </div>
             <div className="hero__stat">
-              <span className="hero__stat-num">3</span>
-              <span className="hero__stat-label">Topics</span>
-            </div>
-            <div className="hero__stat">
-              <span className="hero__stat-num">Free</span>
-              <span className="hero__stat-label">Always</span>
+              <span className="hero__stat-num">10K</span>
+              <span className="hero__stat-label">Readers</span>
             </div>
           </div>
         </div>
@@ -137,7 +135,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── Newsletter ────────────────────────────────────── */}
+      {/* ── Newsletter (commented out until Mailchimp is set up) ──
       <section className="container">
         <div className="newsletter">
           <div className="newsletter__text">
@@ -150,6 +148,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      ── */}
     </>
   );
 }
