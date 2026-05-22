@@ -1,0 +1,94 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 15, 15, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 60px;
+}
+
+.navbar__logo {
+  font-family: var(--font-display);
+  font-size: 28px;
+  letter-spacing: 3px;
+  color: var(--text);
+  flex-shrink: 0;
+}
+.navbar__logo span { color: var(--accent); }
+
+.navbar__links {
+  display: flex;
+  gap: 24px;
+  flex: 1;
+}
+.navbar__links a {
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+  transition: color var(--transition);
+}
+.navbar__links a:hover { color: var(--text); }
+
+.navbar__right { margin-left: auto; }
+
+.navbar__search-toggle {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color var(--transition), color var(--transition);
+}
+.navbar__search-toggle:hover { border-color: var(--border-hover); color: var(--text); }
+
+.navbar__search-bar {
+  border-top: 1px solid var(--border);
+  background: var(--bg-card);
+  padding: 14px 0;
+  animation: fadeUp 0.2s ease both;
+}
+.navbar__search-bar .container {
+  display: flex;
+  gap: 12px;
+}
+.navbar__search-bar input {
+  flex: 1;
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 16px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  outline: none;
+  transition: border-color var(--transition);
+}
+.navbar__search-bar input:focus { border-color: var(--accent); }
+.navbar__search-bar input::placeholder { color: var(--text-faint); }
+.navbar__search-bar button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background var(--transition);
+}
+.navbar__search-bar button:hover { background: var(--accent-dark); }
+
+@media (max-width: 680px) {
+  .navbar__links { display: none; }
+}
