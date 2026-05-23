@@ -3,6 +3,100 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import './CalcPage.css';
 
+// ── Speed Converter ───────────────────────────────────────────
+function SpeedConverter() {
+  const [mph,  setMph]  = useState('');
+  const [kmh,  setKmh]  = useState('');
+
+  const fromMph = (v) => {
+    const val = parseFloat(v);
+    setMph(v);
+    setKmh(isNaN(val) ? '' : (Math.round(val * 1.60934 * 100) / 100).toString());
+  };
+
+  const fromKmh = (v) => {
+    const val = parseFloat(v);
+    setKmh(v);
+    setMph(isNaN(val) ? '' : (Math.round(val / 1.60934 * 100) / 100).toString());
+  };
+
+  // Common treadmill speed reference table
+  const SPEEDS = [
+    { mph: 2.0, label: 'Slow walk' },
+    { mph: 2.5, label: 'Walk' },
+    { mph: 3.0, label: '12-3-30 speed' },
+    { mph: 3.5, label: 'Brisk walk' },
+    { mph: 4.0, label: 'Fast walk' },
+    { mph: 5.0, label: 'Jog' },
+    { mph: 6.0, label: 'Easy run' },
+    { mph: 7.0, label: 'Moderate run' },
+    { mph: 8.0, label: 'Fast run' },
+  ];
+
+  return (
+    <div className="converter-card converter-card--speed">
+      <h3>Speed — mph ↔ km/h</h3>
+
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 12 }}>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontSize: 11, letterSpacing: 1, textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 5 }}>mph</div>
+          <input
+            type="number"
+            placeholder="e.g. 3"
+            value={mph}
+            min="0"
+            step="0.1"
+            onChange={e => fromMph(e.target.value)}
+            style={{ width: '100%', background: 'var(--bg-raised)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', padding: '9px 12px', color: 'var(--text)', fontFamily: 'var(--font-body)', fontSize: 15, outline: 'none' }}
+          />
+        </div>
+        <div style={{ color: 'var(--accent)', fontSize: 20, marginTop: 18, flexShrink: 0 }}>⇄</div>
+        <div style={{ flex: 1 }}>
+          <div style={{ fontSize: 11, letterSpacing: 1, textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 5 }}>km/h</div>
+          <input
+            type="number"
+            placeholder="e.g. 4.8"
+            value={kmh}
+            min="0"
+            step="0.1"
+            onChange={e => fromKmh(e.target.value)}
+            style={{ width: '100%', background: 'var(--bg-raised)', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', padding: '9px 12px', color: 'var(--text)', fontFamily: 'var(--font-body)', fontSize: 15, outline: 'none' }}
+          />
+        </div>
+      </div>
+
+      {/* Reference table */}
+      <div style={{ marginTop: 8 }}>
+        <div style={{ fontSize: 10, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--text-faint)', marginBottom: 8 }}>Treadmill reference</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
+          {SPEEDS.map(s => (
+            <div
+              key={s.mph}
+              onClick={() => fromMph(s.mph.toString())}
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                padding: '6px 10px',
+                borderRadius: 'var(--radius-sm)',
+                background: parseFloat(mph) === s.mph ? 'rgba(216,90,48,0.12)' : 'var(--bg-raised)',
+                border: parseFloat(mph) === s.mph ? '1px solid var(--accent)' : '1px solid transparent',
+                cursor: 'pointer',
+                transition: 'all 0.15s ease',
+              }}
+            >
+              <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>{s.label}</span>
+              <span style={{ fontSize: 12, color: 'var(--text-faint)', fontFamily: 'monospace' }}>
+                {s.mph} mph · {Math.round(s.mph * 1.60934 * 10) / 10} km/h
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Steps to Distance ────────────────────────────────────────
 function StepsToDistance() {
   const [steps,   setSteps]   = useState('');
@@ -14,10 +108,9 @@ function StepsToDistance() {
     const s = parseFloat(steps);
     const h = parseFloat(height);
     if (!s || !h) return;
-    // Stride length ≈ 0.413 × height (m) for average adult
-    const heightM    = hUnit === 'cm' ? h / 100 : h * 0.0254;
-    const strideM    = 0.413 * heightM;
-    const distanceM  = s * strideM;
+    const heightM   = hUnit === 'cm' ? h / 100 : h * 0.0254;
+    const strideM   = 0.413 * heightM;
+    const distanceM = s * strideM;
     setResult({
       meters: Math.round(distanceM),
       km:     Math.round(distanceM / 10) / 100,
@@ -56,29 +149,15 @@ function LengthConverter() {
   const [from,  setFrom]  = useState('km');
   const [to,    setTo]    = useState('miles');
 
-  const UNITS = {
-    km:     1000,
-    m:      1,
-    cm:     0.01,
-    mm:     0.001,
-    miles:  1609.34,
-    yards:  0.9144,
-    feet:   0.3048,
-    inches: 0.0254,
-  };
-
-  const result = value
-    ? Math.round((parseFloat(value) * UNITS[from] / UNITS[to]) * 10000) / 10000
-    : null;
-
+  const UNITS = { km: 1000, m: 1, cm: 0.01, mm: 0.001, miles: 1609.34, yards: 0.9144, feet: 0.3048, inches: 0.0254 };
+  const result = value ? Math.round((parseFloat(value) * UNITS[from] / UNITS[to]) * 10000) / 10000 : null;
   const units = Object.keys(UNITS);
 
   return (
     <div className="converter-card">
       <h3>Length & Distance</h3>
       <div className="converter-row">
-        <input type="number" placeholder="Value" value={value}
-          onChange={e => setValue(e.target.value)} />
+        <input type="number" placeholder="Value" value={value} onChange={e => setValue(e.target.value)} />
         <select value={from} onChange={e => setFrom(e.target.value)}>
           {units.map(u => <option key={u}>{u}</option>)}
         </select>
@@ -107,17 +186,13 @@ function WeightConverter() {
 
   const UNITS = { kg: 1, lbs: 0.453592, grams: 0.001, oz: 0.0283495, stones: 6.35029 };
   const units = Object.keys(UNITS);
-
-  const result = value
-    ? Math.round((parseFloat(value) * UNITS[from] / UNITS[to]) * 1000) / 1000
-    : null;
+  const result = value ? Math.round((parseFloat(value) * UNITS[from] / UNITS[to]) * 1000) / 1000 : null;
 
   return (
     <div className="converter-card">
       <h3>Weight & Mass</h3>
       <div className="converter-row">
-        <input type="number" placeholder="Value" value={value}
-          onChange={e => setValue(e.target.value)} />
+        <input type="number" placeholder="Value" value={value} onChange={e => setValue(e.target.value)} />
         <select value={from} onChange={e => setFrom(e.target.value)}>
           {units.map(u => <option key={u}>{u}</option>)}
         </select>
@@ -145,14 +220,10 @@ function TemperatureConverter() {
   const [to,    setTo]    = useState('°F');
 
   const convert = (v, f, t) => {
-    let celsius;
-    if (f === '°C') celsius = v;
-    else if (f === '°F') celsius = (v - 32) * 5 / 9;
-    else celsius = v - 273.15;
-
-    if (t === '°C') return Math.round(celsius * 100) / 100;
-    if (t === '°F') return Math.round((celsius * 9/5 + 32) * 100) / 100;
-    return Math.round((celsius + 273.15) * 100) / 100;
+    let c = f === '°C' ? v : f === '°F' ? (v - 32) * 5 / 9 : v - 273.15;
+    if (t === '°C') return Math.round(c * 100) / 100;
+    if (t === '°F') return Math.round((c * 9/5 + 32) * 100) / 100;
+    return Math.round((c + 273.15) * 100) / 100;
   };
 
   const units = ['°C', '°F', 'K'];
@@ -162,8 +233,7 @@ function TemperatureConverter() {
     <div className="converter-card">
       <h3>Temperature</h3>
       <div className="converter-row">
-        <input type="number" placeholder="Value" value={value}
-          onChange={e => setValue(e.target.value)} />
+        <input type="number" placeholder="Value" value={value} onChange={e => setValue(e.target.value)} />
         <select value={from} onChange={e => setFrom(e.target.value)}>
           {units.map(u => <option key={u}>{u}</option>)}
         </select>
@@ -189,8 +259,8 @@ export default function ConvertersPage() {
   return (
     <>
       <Helmet>
-        <title>Fitness Converters — Steps, Length, Weight, Temperature | LiftAndBurn</title>
-        <meta name="description" content="Free fitness unit converters — convert steps to distance, length, weight, and temperature. Built for athletes and gym-goers." />
+        <title>Fitness Converters — mph to km/h, Steps, Weight, Temperature | LiftAndBurn</title>
+        <meta name="description" content="Free fitness converters — mph to km/h, steps to distance, weight, length, and temperature. Includes a treadmill speed reference table." />
       </Helmet>
 
       <div className="calc-page container">
@@ -203,12 +273,19 @@ export default function ConvertersPage() {
         <div className="calc-layout">
           <div className="calc-main">
             <div className="adsense-slot">AdSense · 728×90</div>
+
+            {/* Speed converter first — most relevant for treadmill users */}
+            <div style={{ marginBottom: 16 }}>
+              <SpeedConverter />
+            </div>
+
             <div className="converter-grid">
               <StepsToDistance />
               <LengthConverter />
               <WeightConverter />
               <TemperatureConverter />
             </div>
+
             <div className="adsense-slot">AdSense · 728×90</div>
             <div className="calc-instructions">
               <div className="calc-links">

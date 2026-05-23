@@ -21,6 +21,7 @@ const SECTIONS = [
   {
     title: 'Converters',
     calcs: [
+      { icon: '💨', title: 'Speed — mph ↔ km/h', desc: 'Instantly convert treadmill speeds between mph and km/h. Includes a full speed reference table.', to: '/calculators/converters' },
       { icon: '👟', title: 'Steps to Distance', desc: 'Convert step count to meters, km, and miles based on your height.', to: '/calculators/converters' },
       { icon: '📏', title: 'Length & Distance', desc: 'Convert between km, miles, meters, feet, inches, and more.', to: '/calculators/converters' },
       { icon: '⚖️', title: 'Weight',            desc: 'Convert between kg, lbs, grams, ounces, and stones.', to: '/calculators/converters' },
