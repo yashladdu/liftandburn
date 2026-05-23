@@ -379,66 +379,74 @@ export default function TDEECalculator() {
                   </div>
                 </div>
 
-                {/* Macro breakdown */}
-                <div style={{ marginTop: 20 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
-                    <span className="tdee-section-label" style={{ margin: 0 }}>Macro Breakdown</span>
-                    <div style={{ display: 'flex', gap: 6 }}>
-                      {Object.entries(MACRO_PRESETS).map(([key, val]) => (
-                        <button
-                          key={key}
-                          onClick={() => setMacroPreset(key)}
-                          style={{
-                            padding: '4px 10px',
-                            fontSize: 11,
-                            borderRadius: 'var(--radius-sm)',
-                            border: '1px solid var(--border)',
-                            background: macroPreset === key ? 'var(--accent)' : 'var(--bg-raised)',
-                            color: macroPreset === key ? '#fff' : 'var(--text-muted)',
-                            cursor: 'pointer',
-                            fontFamily: 'var(--font-body)',
-                            transition: 'all 0.15s ease',
-                          }}
-                        >
-                          {val.label}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+                {/* Macro breakdown — live, reacts to preset changes without recalculating */}
+                {(() => {
+                  const preset    = MACRO_PRESETS[macroPreset];
+                  const weightLbs = result.weightKg * 2.20462;
+                  const proteinG  = Math.round(weightLbs * 0.8);
+                  const fatG      = Math.round((result.targetCals * preset.fat) / 9);
+                  const carbG     = Math.max(Math.round((result.targetCals - proteinG * 4 - fatG * 9) / 4), 0);
+                  return (
+                    <div style={{ marginTop: 20 }}>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 10 }}>
+                        <span className="tdee-section-label" style={{ margin: 0 }}>Macro Breakdown</span>
+                        <div style={{ display: 'flex', gap: 6 }}>
+                          {Object.entries(MACRO_PRESETS).map(([key, val]) => (
+                            <button
+                              key={key}
+                              onClick={() => setMacroPreset(key)}
+                              style={{
+                                padding: '4px 10px',
+                                fontSize: 11,
+                                borderRadius: 'var(--radius-sm)',
+                                border: '1px solid var(--border)',
+                                background: macroPreset === key ? 'var(--accent)' : 'var(--bg-raised)',
+                                color: macroPreset === key ? '#fff' : 'var(--text-muted)',
+                                cursor: 'pointer',
+                                fontFamily: 'var(--font-body)',
+                                transition: 'all 0.15s ease',
+                              }}
+                            >
+                              {val.label}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
 
-                  <div className="tdee-macro-grid">
-                    <div className="tdee-macro-item tdee-macro-protein">
-                      <span className="tdee-macro-g">{result.proteinG}g</span>
-                      <span className="tdee-macro-name">Protein</span>
-                      <span className="tdee-macro-cal">{result.proteinG * 4} kcal</span>
-                      <span className="tdee-macro-note">0.8g per lb bodyweight</span>
-                    </div>
-                    <div className="tdee-macro-item tdee-macro-carbs">
-                      <span className="tdee-macro-g">{result.carbG}g</span>
-                      <span className="tdee-macro-name">Carbohydrates</span>
-                      <span className="tdee-macro-cal">{result.carbG * 4} kcal</span>
-                      <span className="tdee-macro-note">Fuel for training</span>
-                    </div>
-                    <div className="tdee-macro-item tdee-macro-fat">
-                      <span className="tdee-macro-g">{result.fatG}g</span>
-                      <span className="tdee-macro-name">Fat</span>
-                      <span className="tdee-macro-cal">{result.fatG * 9} kcal</span>
-                      <span className="tdee-macro-note">Hormones & health</span>
-                    </div>
-                  </div>
+                      <div className="tdee-macro-grid">
+                        <div className="tdee-macro-item tdee-macro-protein">
+                          <span className="tdee-macro-g">{proteinG}g</span>
+                          <span className="tdee-macro-name">Protein</span>
+                          <span className="tdee-macro-cal">{proteinG * 4} kcal</span>
+                          <span className="tdee-macro-note">0.8g per lb bodyweight</span>
+                        </div>
+                        <div className="tdee-macro-item tdee-macro-carbs">
+                          <span className="tdee-macro-g">{carbG}g</span>
+                          <span className="tdee-macro-name">Carbohydrates</span>
+                          <span className="tdee-macro-cal">{carbG * 4} kcal</span>
+                          <span className="tdee-macro-note">Fuel for training</span>
+                        </div>
+                        <div className="tdee-macro-item tdee-macro-fat">
+                          <span className="tdee-macro-g">{fatG}g</span>
+                          <span className="tdee-macro-name">Fat</span>
+                          <span className="tdee-macro-cal">{fatG * 9} kcal</span>
+                          <span className="tdee-macro-note">Hormones & health</span>
+                        </div>
+                      </div>
 
-                  {/* Visual macro bar */}
-                  <div className="tdee-macro-bar">
-                    <div style={{ flex: result.proteinG * 4, background: '#D85A30' }} title={`Protein: ${result.proteinG * 4} kcal`} />
-                    <div style={{ flex: result.carbG * 4, background: '#4a9eff' }} title={`Carbs: ${result.carbG * 4} kcal`} />
-                    <div style={{ flex: result.fatG * 9, background: '#f59e0b' }} title={`Fat: ${result.fatG * 9} kcal`} />
-                  </div>
-                  <div className="tdee-macro-bar-legend">
-                    <span><span style={{ background: '#D85A30' }} />Protein</span>
-                    <span><span style={{ background: '#4a9eff' }} />Carbs</span>
-                    <span><span style={{ background: '#f59e0b' }} />Fat</span>
-                  </div>
-                </div>
+                      <div className="tdee-macro-bar">
+                        <div style={{ flex: proteinG * 4, background: '#D85A30' }} />
+                        <div style={{ flex: carbG * 4,    background: '#4a9eff' }} />
+                        <div style={{ flex: fatG * 9,     background: '#f59e0b' }} />
+                      </div>
+                      <div className="tdee-macro-bar-legend">
+                        <span><span style={{ background: '#D85A30' }} />Protein</span>
+                        <span><span style={{ background: '#4a9eff' }} />Carbs</span>
+                        <span><span style={{ background: '#f59e0b' }} />Fat</span>
+                      </div>
+                    </div>
+                  );
+                })()}
 
                 {/* BMR equation comparison */}
                 <div className="tdee-equations">
