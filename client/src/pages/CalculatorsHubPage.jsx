@@ -13,6 +13,7 @@ const SECTIONS = [
   {
     title: 'Strength Calculators',
     calcs: [
+      { icon: '🍽️', title: 'TDEE Calculator', desc: 'Calculate your Total Daily Energy Expenditure and daily calorie target using Mifflin-St Jeor, Katch-McArdle and more. Includes macro breakdown.', to: '/calculators/tdee' },
       { icon: '🏋️', title: 'One Rep Max',         desc: 'Estimate your 1RM from any working set and get a full training percentage table.', to: '/calculators/one-rep-max' },
       { icon: '🏃', title: 'Zone 2 Heart Rate',   desc: 'Find your optimal fat-burning cardio heart rate zone based on your age.', to: '/calculators/zone2' },
       { icon: '🔥', title: 'Calories Burned',     desc: 'Calories burned across 18 activities including treadmill, cycling, rowing, and lifting.', to: '/calculators/calories' },
