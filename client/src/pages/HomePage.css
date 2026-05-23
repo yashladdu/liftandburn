@@ -104,20 +104,15 @@
 /* ── Hero stats ────────────────────────────────────────────── */
 .hero__stats {
   display: flex;
-  flex-direction: row;
-  gap: 36px;
+  flex-direction: column;
+  gap: 24px;
   flex-shrink: 0;
-  align-items: center;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 24px 32px;
 }
-.hero__stat { text-align: center; }
+.hero__stat { text-align: right; }
 .hero__stat-num {
   display: block;
   font-family: var(--font-display);
-  font-size: 42px;
+  font-size: 48px;
   color: var(--text);
   line-height: 1;
 }
@@ -126,8 +121,6 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--text-faint);
-  margin-top: 4px;
-  display: block;
 }
 
 /* ── Category grid ─────────────────────────────────────────── */

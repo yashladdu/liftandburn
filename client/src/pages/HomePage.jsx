@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { useState, useEffect, useRef } from 'react';
 import { api } from '../api';
 import { useFetch } from '../hooks/useFetch';
 import ArticleCard from '../components/ArticleCard';
@@ -15,12 +16,46 @@ function Skeleton() {
   );
 }
 
+// Animated counting number
+function CountUp({ target, suffix = '', duration = 1200 }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    if (!target) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          const start = Date.now();
+          const tick = () => {
+            const elapsed = Date.now() - start;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(Math.round(eased * target));
+            if (progress < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      },
+      { threshold: 0.5 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, [target, duration]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+}
+
 export default function HomePage() {
   const { data: featured, loading: fLoad } = useFetch(api.articles.featured, []);
   const { data: latest,   loading: lLoad } = useFetch(
     () => api.articles.list({ limit: 6 }), []
   );
   const { data: cats } = useFetch(api.categories.list, []);
+  const articleCount = latest?.pagination?.total || 0;
 
   return (
     <>
@@ -49,16 +84,20 @@ export default function HomePage() {
 
           <div className="hero__stats fade-up-3">
             <div className="hero__stat">
-              <span className="hero__stat-num">48+</span>
-              <span className="hero__stat-label">Programs</span>
-            </div>
-            <div className="hero__stat">
-              <span className="hero__stat-num">120+</span>
+              <span className="hero__stat-num">
+                <CountUp target={articleCount} suffix="+" duration={1000} />
+              </span>
               <span className="hero__stat-label">Articles</span>
             </div>
             <div className="hero__stat">
-              <span className="hero__stat-num">10K</span>
-              <span className="hero__stat-label">Readers</span>
+              <span className="hero__stat-num">
+                <CountUp target={3} duration={600} />
+              </span>
+              <span className="hero__stat-label">Topics</span>
+            </div>
+            <div className="hero__stat">
+              <span className="hero__stat-num">Free</span>
+              <span className="hero__stat-label">Always</span>
             </div>
           </div>
         </div>
