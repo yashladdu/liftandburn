@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.liftandburn.com/sitemap.xml
+Sitemap: https://liftandburn.fit/sitemap_index.xml
