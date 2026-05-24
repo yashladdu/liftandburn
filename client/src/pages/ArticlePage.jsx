@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { api } from '../api';
@@ -5,28 +6,111 @@ import { useFetch } from '../hooks/useFetch';
 import ArticleCard from '../components/ArticleCard';
 import './ArticlePage.css';
 
+// ── Reading progress bar ──────────────────────────────────────
+function ReadingProgress() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const update = () => {
+      const scrollTop    = window.scrollY;
+      const docHeight    = document.documentElement.scrollHeight - window.innerHeight;
+      const pct          = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
+      setProgress(pct);
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
+
+  return (
+    <div className="reading-progress">
+      <div className="reading-progress__bar" style={{ width: `${progress}%` }} />
+    </div>
+  );
+}
+
+// ── Share buttons ─────────────────────────────────────────────
+function ShareButtons({ title, url }) {
+  const [copied, setCopied] = useState(false);
+
+  const encodedUrl   = encodeURIComponent(url);
+  const encodedTitle = encodeURIComponent(title);
+
+  const shareX        = () => window.open(`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`, '_blank');
+  const shareWhatsApp = () => window.open(`https://wa.me/?text=${encodedTitle}%20${encodedUrl}`, '_blank');
+
+  const copyLink = async () => {
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      const el = document.createElement('input');
+      el.value = url;
+      document.body.appendChild(el);
+      el.select();
+      document.execCommand('copy');
+      document.body.removeChild(el);
+    }
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className="share-bar">
+      <span className="share-bar__label">Share</span>
+      <button className="share-btn share-btn--x" onClick={shareX} aria-label="Share on X">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+        </svg>
+        <span>Post</span>
+      </button>
+      <button className="share-btn share-btn--whatsapp" onClick={shareWhatsApp} aria-label="Share on WhatsApp">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span>WhatsApp</span>
+      </button>
+      <button className={`share-btn share-btn--copy ${copied ? 'copied' : ''}`} onClick={copyLink} aria-label="Copy link">
+        {copied ? (
+          <><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Copied!</span></>
+        ) : (
+          <><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg><span>Copy link</span></>
+        )}
+      </button>
+    </div>
+  );
+}
+
 export default function ArticlePage() {
   const { slug } = useParams();
 
   const { data, loading, error } = useFetch(() => api.articles.bySlug(slug), [slug]);
   const { data: related }        = useFetch(() => api.articles.related(slug), [slug]);
 
-  if (loading) return <div className="article-loading container">Loading article…</div>;
+  if (loading) return <><ReadingProgress /><div className="article-loading container">Loading article…</div></>;
   if (error)   return <div className="article-error container">Article not found.</div>;
 
   const { article } = data;
   const date = article.publishedAt
-    ? new Date(article.publishedAt).toLocaleDateString('en-GB', {
-        day: 'numeric', month: 'long', year: 'numeric',
-      })
+    ? new Date(article.publishedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
     : null;
+
+  const pageUrl = `https://liftandburn.fit/articles/${article.slug}`;
 
   return (
     <>
       <Helmet>
         <title>{article.title} — LiftAndBurn</title>
-        <meta name="description" content={article.description} />
+        <meta name="description"         content={article.description} />
+        <meta property="og:title"        content={`${article.title} — LiftAndBurn`} />
+        <meta property="og:description"  content={article.description} />
+        <meta property="og:url"          content={pageUrl} />
+        <meta property="og:type"         content="article" />
+        <meta name="twitter:card"        content="summary" />
+        <meta name="twitter:title"       content={article.title} />
+        <meta name="twitter:description" content={article.description} />
       </Helmet>
+
+      {/* Reading progress bar — fixed at top of viewport */}
+      <ReadingProgress />
 
       <div className="article-page container">
 
@@ -36,20 +120,21 @@ export default function ArticlePage() {
             <Link to={`/category/${article.category}`} className="tag accent">
               {article.category}
             </Link>
-            {date && <span className="article-header__date">{date}</span>}
             {article.readingTime && (
-              <span className="article-header__read">{article.readingTime} min read</span>
+              <span className="article-header__read-badge">
+                📖 {article.readingTime} min read
+              </span>
             )}
+            {date && <span className="article-header__date">{date}</span>}
           </div>
           <h1 className="article-header__title">{article.title}</h1>
           {article.description && (
             <p className="article-header__desc">{article.description}</p>
           )}
+          <ShareButtons title={article.title} url={pageUrl} />
           {article.tags?.length > 0 && (
             <div className="article-header__tags">
-              {article.tags.map((t) => (
-                <span key={t} className="tag">{t}</span>
-              ))}
+              {article.tags.map((t) => <span key={t} className="tag">{t}</span>)}
             </div>
           )}
         </header>
@@ -59,10 +144,7 @@ export default function ArticlePage() {
 
         {/* ── Body ──────────────────────────────────────── */}
         <div className="article-layout">
-          <article
-            className="article-body fade-up-2"
-            dangerouslySetInnerHTML={{ __html: article.html }}
-          />
+          <article className="article-body fade-up-2" dangerouslySetInnerHTML={{ __html: article.html }} />
 
           {/* ── Sidebar ─────────────────────────────────── */}
           <aside className="article-sidebar">
@@ -74,12 +156,14 @@ export default function ArticlePage() {
               </p>
               <Link to="/articles" className="sidebar-card__link">Browse all articles →</Link>
             </div>
-
-            {/* ── Sidebar AdSense ─────────────────────── */}
-            <div className="adsense-slot" style={{ minHeight: 250 }}>
-              AdSense · 300×250
-            </div>
+            <div className="adsense-slot" style={{ minHeight: 250 }}>AdSense · 300×250</div>
           </aside>
+        </div>
+
+        {/* ── Bottom share bar ──────────────────────────── */}
+        <div className="share-bar-bottom">
+          <span>Found this useful?</span>
+          <ShareButtons title={article.title} url={pageUrl} />
         </div>
 
         {/* ── AdSense bottom ────────────────────────────── */}
@@ -90,9 +174,7 @@ export default function ArticlePage() {
           <section className="related">
             <h2 className="related__title">RELATED ARTICLES</h2>
             <div className="article-list">
-              {related.articles.map((a) => (
-                <ArticleCard key={a.slug} article={a} />
-              ))}
+              {related.articles.map((a) => <ArticleCard key={a.slug} article={a} />)}
             </div>
           </section>
         )}

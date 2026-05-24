@@ -151,6 +151,33 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── Calculators ───────────────────────────────────── */}
+      <section className="section">
+        <div className="container">
+          <div className="section-header">
+            <span className="section-eyebrow">Free tools</span>
+            <h2 className="section-title">FITNESS CALCULATORS</h2>
+            <Link to="/calculators" className="section-view-all">View all →</Link>
+          </div>
+          <div className="calc-promo-grid">
+            {[
+              { to: '/calculators/tdee',        icon: '🍽️', label: 'TDEE Calculator',       desc: 'Your daily calorie target and macro breakdown' },
+              { to: '/calculators/bmi',          icon: '⚖️', label: 'BMI Calculator',        desc: 'Body Mass Index with healthy weight range' },
+              { to: '/calculators/walk-run',     icon: '🚶', label: 'Walk / Run',            desc: 'METs, VO2 and calories burned on a treadmill' },
+              { to: '/calculators/zone2',        icon: '🏃', label: 'Zone 2 Heart Rate',     desc: 'Your optimal fat-burning cardio zone' },
+              { to: '/calculators/steps',        icon: '👟', label: 'Steps to Calories',     desc: 'How many calories does walking 10,000 steps burn?' },
+              { to: '/calculators/converters',   icon: '💨', label: 'mph ↔ km/h',            desc: 'Treadmill speed converter' },
+            ].map((c) => (
+              <Link key={c.to} to={c.to} className="calc-promo-card">
+                <span className="calc-promo-icon">{c.icon}</span>
+                <span className="calc-promo-label">{c.label}</span>
+                <span className="calc-promo-desc">{c.desc}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── AdSense mid ───────────────────────────────────── */}
       <div className="container">
         <div className="adsense-slot">AdSense · 728×90</div>

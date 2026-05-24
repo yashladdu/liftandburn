@@ -30,7 +30,7 @@ export default function ArticleCard({ article, featured = false }) {
         <div className="article-card__meta">
           <span className="tag">{article.category}</span>
           {article.readingTime && (
-            <span className="article-card__read">{article.readingTime} min read</span>
+            <span className="article-card__read">⏱ {article.readingTime} min</span>
           )}
         </div>
         <h3 className="article-card__title">{article.title}</h3>

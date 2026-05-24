@@ -7,7 +7,7 @@ const SECTIONS = [
     title: 'Metabolic Calculators',
     calcs: [
       { icon: '🚶', title: 'Walk / Run',  desc: 'METs, VO2, and calories burned walking or running on a treadmill.', to: '/calculators/walk-run' },
-      { icon: '🪜', title: 'Step',        desc: 'METs, VO2, and calories burned during step exercise.', to: '/calculators/steps' },
+      { icon: '👟', title: 'Steps to Calories', desc: 'How many calories does walking 10,000 steps burn? Enter your steps, weight and pace.', to: '/calculators/steps' },
     ],
   },
   {

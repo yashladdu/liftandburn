@@ -35,6 +35,11 @@
   transition: color var(--transition);
 }
 .navbar__links a:hover { color: var(--text); }
+.navbar__link--highlight {
+  color: var(--accent) !important;
+  font-weight: 500;
+}
+.navbar__link--highlight:hover { opacity: 0.8; }
 
 .navbar__right {
   margin-left: auto;
@@ -162,4 +167,31 @@
 @media (max-width: 680px) {
   .navbar__links    { display: none; }
   .navbar__hamburger { display: flex; }
+}
+
+/* ── Theme toggle ──────────────────────────────────────────── */
+.navbar__theme-btn { font-size: 16px; }
+
+.navbar__mobile-theme {
+  background: none;
+  border: none;
+  padding: 12px 24px;
+  font-size: 15px;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  transition: color var(--transition);
+}
+.navbar__mobile-theme:hover { color: var(--text); }
+
+/* ── Light mode navbar overrides ──────────────────────────── */
+body.light-mode .navbar {
+  background: rgba(248, 246, 243, 0.95);
+  border-bottom-color: rgba(0,0,0,0.08);
+}
+body.light-mode .navbar__mobile-menu {
+  background: #fff;
+  border-top-color: rgba(0,0,0,0.08);
 }

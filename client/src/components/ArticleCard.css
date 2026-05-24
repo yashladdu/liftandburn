@@ -40,9 +40,17 @@
   margin-bottom: 8px;
 }
 .article-card__read {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
   font-size: 11px;
-  color: var(--text-faint);
-  letter-spacing: 0.5px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
 }
 
 .article-card__title {

@@ -222,3 +222,36 @@
   .newsletter__form { width: 100%; }
   .newsletter__form input { flex: 1; }
 }
+
+/* ── Calculator promo grid ─────────────────────────────────── */
+.calc-promo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.calc-promo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.calc-promo-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.calc-promo-icon  { font-size: 24px; }
+.calc-promo-label {
+  font-family: var(--font-display);
+  font-size: 17px;
+  letter-spacing: 0.3px;
+  color: var(--text);
+}
+.calc-promo-desc  { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+
+@media (max-width: 680px) {
+  .calc-promo-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 420px) {
+  .calc-promo-grid { grid-template-columns: 1fr; }
+}

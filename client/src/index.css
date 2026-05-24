@@ -21,6 +21,18 @@
   --transition:   0.2s ease;
 }
 
+/* ── Light mode ────────────────────────────────────────────── */
+body.light-mode {
+  --bg:           #f8f6f3;
+  --bg-card:      #ffffff;
+  --bg-raised:    #f0ede8;
+  --border:       rgba(0,0,0,0.08);
+  --border-hover: rgba(0,0,0,0.18);
+  --text:         #1a1a1a;
+  --text-muted:   #555550;
+  --text-faint:   #999990;
+}
+
 /* ── Reset ─────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -91,8 +103,6 @@ button { cursor: pointer; font-family: var(--font-body); }
   margin: 32px 0;
 } */
 
-/* TODO: Once AdSense approved, replace with real ad units */
 .adsense-slot {
-  display: none; /* hidden until AdSense approved */
-  margin: 32px 0;
+  display: none;
 }
