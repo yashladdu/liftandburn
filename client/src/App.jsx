@@ -15,6 +15,7 @@ import Zone2CalculatorPage from './pages/calculators/Zone2CalculatorPage';
 import OneRepMaxPage from './pages/calculators/OneRepMaxPage';
 import CaloriesPage from './pages/calculators/CaloriesPage';
 import TDEECalculator from './pages/calculators/TDEECalculator';
+import BMICalculator from './pages/calculators/BMICalculator';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PrivacyPage from './pages/PrivacyPage';
@@ -39,6 +40,7 @@ export default function App() {
             <Route path="/calculators/one-rep-max" element={<OneRepMaxPage />} />
             <Route path="/calculators/calories"    element={<CaloriesPage />} />
             <Route path="/calculators/tdee"        element={<TDEECalculator />} />
+            <Route path="/calculators/bmi"         element={<BMICalculator />} />
             <Route path="/about"                   element={<AboutPage />} />
             <Route path="/contact"                 element={<ContactPage />} />
             <Route path="/privacy"                 element={<PrivacyPage />} />
