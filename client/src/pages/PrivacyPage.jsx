@@ -8,6 +8,7 @@ export default function PrivacyPage() {
     <>
       <Helmet>
         <title>Privacy Policy — LiftAndBurn</title>
+        <link rel="canonical" href="https://liftandburn.fit/" />
         <meta name="description" content="Privacy Policy for LiftAndBurn.com — how we collect, use, and protect your information." />
       </Helmet>
 

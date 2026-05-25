@@ -98,6 +98,7 @@ export default function ArticlePage() {
   return (
     <>
       <Helmet>
+        <link rel="canonical" href={pageUrl} />
         <title>{article.title} — LiftAndBurn</title>
         <meta name="description"         content={article.description} />
         <meta property="og:title"        content={`${article.title} — LiftAndBurn`} />

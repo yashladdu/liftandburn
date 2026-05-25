@@ -37,6 +37,7 @@ export default function CalculatorsHubPage() {
     <>
       <Helmet>
         <title>Fitness Calculators — LiftAndBurn</title>
+        <link rel="canonical" href="https://liftandburn.fit/" />
         <meta name="description" content="Free fitness calculators for hybrid athletes — metabolic calculators, strength tools, and unit converters. No sign-up required." />
       </Helmet>
 

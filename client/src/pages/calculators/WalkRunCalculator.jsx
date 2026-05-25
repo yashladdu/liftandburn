@@ -86,6 +86,7 @@ export default function WalkRunCalculator() {
     <>
       <Helmet>
         <title>Walk / Run Metabolic Calculator — LiftAndBurn</title>
+        <link rel="canonical" href="https://liftandburn.fit/" />
         <meta name="description" content="Calculate METs, VO2, and calories burned walking or running using ACSM metabolic equations. Enter speed, grade, body weight and duration." />
       </Helmet>
 

@@ -61,6 +61,7 @@ export default function HomePage() {
     <>
       <Helmet>
         <title>LiftAndBurn — Hybrid Athlete Training</title>
+        <link rel="canonical" href="https://liftandburn.fit/" />
         <meta name="description" content="Science-backed guides for building strength and endurance. Weightlifting, steady-state cardio, and body recomp for hybrid athletes." />
       </Helmet>
 

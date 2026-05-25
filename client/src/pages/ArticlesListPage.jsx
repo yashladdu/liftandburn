@@ -19,6 +19,7 @@ export default function ArticlesListPage() {
     <>
       <Helmet>
         <title>All Articles — LiftAndBurn</title>
+        <link rel="canonical" href="https://liftandburn.fit/" />
         <meta name="description" content="Browse all training articles on weightlifting, cardio, and body recomp." />
       </Helmet>
 

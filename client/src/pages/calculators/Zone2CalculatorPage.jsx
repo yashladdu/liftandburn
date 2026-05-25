@@ -8,6 +8,7 @@ export default function Zone2CalculatorPage() {
     <>
       <Helmet>
         <title>Zone 2 Heart Rate Calculator — LiftAndBurn</title>
+        <link rel="canonical" href="https://liftandburn.fit/" />
         <meta name="description" content="Calculate your Zone 2 heart rate range for optimal fat-burning steady-state cardio. Based on your age using the standard 220-minus-age formula." />
       </Helmet>
       <div className="calc-page container">
