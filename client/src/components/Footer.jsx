@@ -16,6 +16,7 @@ export default function Footer() {
             <Link to="/category/weightlifting">Weightlifting</Link>
             <Link to="/category/cardio">Cardio</Link>
             <Link to="/category/recomp">Body Recomp</Link>
+            <Link to="/programs">Store</Link>
             <Link to="/calculators">Calculators</Link>
           </div>
           <div className="footer__col">
@@ -31,7 +32,7 @@ export default function Footer() {
       <div className="footer__bottom">
         <div className="container">
           <span>© {new Date().getFullYear()} LiftAndBurn. All rights reserved.</span>
-          {/* <span>Built with React + Node</span> */}
+          <span>Built with React + Node</span>
         </div>
       </div>
     </footer>

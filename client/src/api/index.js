@@ -21,4 +21,9 @@ export const api = {
     byName:   (name)       => get(`/categories/${name}`),
   },
   search:     (q)          => get(`/search?q=${encodeURIComponent(q)}`),
+  programs: {
+    list:     ()           => get('/programs'),
+    featured: ()           => get('/programs/featured'),
+    bySlug:   (slug)       => get(`/programs/${slug}`),
+  },
 };

@@ -6,7 +6,8 @@ const NAV_LINKS = [
   { to: '/category/weightlifting', label: 'Weightlifting' },
   { to: '/category/cardio',        label: 'Cardio' },
   { to: '/category/recomp',        label: 'Recomp' },
-  { to: '/calculators',            label: 'Calculators', highlight: true },
+  { to: '/programs',               label: 'Store',       highlight: true },
+  { to: '/calculators',            label: 'Calculators' },
   { to: '/articles',               label: 'All Articles' },
 ];
 

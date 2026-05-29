@@ -4,6 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 
 import articlesRouter from './routes/articles.js';
+import programsRouter from './routes/programs.js';
 import categoriesRouter from './routes/categories.js';
 import searchRouter from './routes/search.js';
 
@@ -18,6 +19,7 @@ app.use(express.json());
 
 // ── Routes ────────────────────────────────────────────────────
 app.use('/api/articles', articlesRouter);
+app.use('/api/programs', programsRouter);
 app.use('/api/categories', categoriesRouter);
 app.use('/api/search', searchRouter);
 
