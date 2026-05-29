@@ -35,7 +35,7 @@ export default function OneRepMaxPage() {
               <h3>Related Calculators</h3>
               <Link to="/calculators/zone2">Zone 2 Heart Rate</Link>
               <Link to="/calculators/calories">Calories Burned</Link>
-              <Link to="/calculators/walk-run">Walk / Run Metabolic</Link>
+              <Link to="/calculators/treadmill-calorie-calculator">Walk / Run Metabolic</Link>
             </div>
           </aside>
         </div>

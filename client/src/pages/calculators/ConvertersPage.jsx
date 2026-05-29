@@ -289,7 +289,7 @@ export default function ConvertersPage() {
             <div className="adsense-slot">AdSense · 728×90</div>
             <div className="calc-instructions">
               <div className="calc-links">
-                <Link to="/calculators/walk-run">Walk / Run Calculator</Link>
+                <Link to="/calculators/treadmill-calorie-calculator">Walk / Run Calculator</Link>
                 <span>|</span>
                 <Link to="/calculators/steps">Step Calculator</Link>
                 <span>|</span>
@@ -302,7 +302,7 @@ export default function ConvertersPage() {
             <div className="adsense-slot" style={{ minHeight: 250 }}>AdSense · 300×250</div>
             <div className="calc-related">
               <h3>Metabolic Calculators</h3>
-              <Link to="/calculators/walk-run">Walk / Run Metabolic</Link>
+              <Link to="/calculators/treadmill-calorie-calculator">Walk / Run Metabolic</Link>
               <Link to="/calculators/steps">Step Metabolic</Link>
               <Link to="/calculators/calories">Calories Burned</Link>
             </div>

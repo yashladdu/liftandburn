@@ -81,7 +81,6 @@ export default function StepsCalculator() {
     <>
       <Helmet>
         <title>Steps to Calories Calculator — How Many Calories Do Steps Burn? | LiftAndBurn</title>
-        <link rel="canonical" href="https://liftandburn.fit/" />
         <meta name="description" content="Calculate how many calories you burn walking based on your step count, body weight, and pace. Includes distance, duration, and fat burned." />
       </Helmet>
 
@@ -257,7 +256,7 @@ export default function StepsCalculator() {
               <p className="calc-note">Calorie estimates are approximate. Individual metabolism, terrain, gradient, and walking efficiency all affect actual calorie burn.</p>
 
               <div className="calc-links">
-                <Link to="/calculators/walk-run">Walk / Run Metabolic Calculator</Link>
+                <Link to="/calculators/treadmill-calorie-calculator">Walk / Run Metabolic Calculator</Link>
                 <span>|</span>
                 <Link to="/articles/treadmill-incline-walking-burn-calories">Treadmill Incline Walking Guide →</Link>
                 <span>|</span>
@@ -274,7 +273,7 @@ export default function StepsCalculator() {
             <div className="adsense-slot" style={{ minHeight: 250 }}>AdSense · 300×250</div>
             <div className="calc-related">
               <h3>Related Calculators</h3>
-              <Link to="/calculators/walk-run">Walk / Run Metabolic</Link>
+              <Link to="/calculators/treadmill-calorie-calculator">Walk / Run Metabolic</Link>
               <Link to="/calculators/calories">Calories Burned</Link>
               <Link to="/calculators/tdee">TDEE Calculator</Link>
               <Link to="/calculators/zone2">Zone 2 Heart Rate</Link>

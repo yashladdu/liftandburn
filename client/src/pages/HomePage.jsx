@@ -61,7 +61,6 @@ export default function HomePage() {
     <>
       <Helmet>
         <title>LiftAndBurn — Hybrid Athlete Training</title>
-        <link rel="canonical" href="https://liftandburn.fit/" />
         <meta name="description" content="Science-backed guides for building strength and endurance. Weightlifting, steady-state cardio, and body recomp for hybrid athletes." />
       </Helmet>
 
@@ -164,7 +163,7 @@ export default function HomePage() {
             {[
               { to: '/calculators/tdee',        icon: '🍽️', label: 'TDEE Calculator',       desc: 'Your daily calorie target and macro breakdown' },
               { to: '/calculators/bmi',          icon: '⚖️', label: 'BMI Calculator',        desc: 'Body Mass Index with healthy weight range' },
-              { to: '/calculators/walk-run',     icon: '🚶', label: 'Walk / Run',            desc: 'METs, VO2 and calories burned on a treadmill' },
+              { to: '/calculators/treadmill-calorie-calculator',     icon: '🏃', label: 'Treadmill Calorie Calculator', desc: 'Calories burned at any speed and incline' },
               { to: '/calculators/zone2',        icon: '🏃', label: 'Zone 2 Heart Rate',     desc: 'Your optimal fat-burning cardio zone' },
               { to: '/calculators/steps',        icon: '👟', label: 'Steps to Calories',     desc: 'How many calories does walking 10,000 steps burn?' },
               { to: '/calculators/converters',   icon: '💨', label: 'mph ↔ km/h',            desc: 'Treadmill speed converter' },

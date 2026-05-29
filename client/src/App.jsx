@@ -35,7 +35,7 @@ export default function App() {
             <Route path="/category/:name"          element={<CategoryPage />} />
             <Route path="/search"                  element={<SearchPage />} />
             <Route path="/calculators"             element={<CalculatorsHubPage />} />
-            <Route path="/calculators/walk-run"    element={<WalkRunCalculator />} />
+            <Route path="/calculators/treadmill-calorie-calculator"    element={<WalkRunCalculator />} />
             <Route path="/calculators/steps"       element={<StepsCalculator />} />
             <Route path="/calculators/converters"  element={<ConvertersPage />} />
             <Route path="/calculators/zone2"       element={<Zone2CalculatorPage />} />

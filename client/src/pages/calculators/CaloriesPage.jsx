@@ -24,7 +24,7 @@ export default function CaloriesPage() {
               <p>A MET of 1 equals resting metabolic rate. Running at 10 km/h has a MET of ~10, meaning it burns roughly 10× more energy than sitting still.</p>
               <p className="calc-note">Actual calories vary with fitness level, age, and individual metabolic rate. Use this as an estimate, not a precise measurement.</p>
               <div className="calc-links">
-                <Link to="/calculators/walk-run">Walk / Run Metabolic Calculator</Link>
+                <Link to="/calculators/treadmill-calorie-calculator">Walk / Run Metabolic Calculator</Link>
                 <span>|</span>
                 <Link to="/articles/how-to-combine-weightlifting-and-cardio">Combining Lifting & Cardio →</Link>
                 <span>|</span>
@@ -36,7 +36,7 @@ export default function CaloriesPage() {
             <div className="adsense-slot" style={{ minHeight: 250 }}>AdSense · 300×250</div>
             <div className="calc-related">
               <h3>Related Calculators</h3>
-              <Link to="/calculators/walk-run">Walk / Run Metabolic</Link>
+              <Link to="/calculators/treadmill-calorie-calculator">Walk / Run Metabolic</Link>
               <Link to="/calculators/steps">Step Metabolic</Link>
               <Link to="/calculators/zone2">Zone 2 Heart Rate</Link>
               <Link to="/calculators/one-rep-max">One Rep Max</Link>

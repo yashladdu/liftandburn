@@ -85,17 +85,17 @@ export default function WalkRunCalculator() {
   return (
     <>
       <Helmet>
-        <title>Walk / Run Metabolic Calculator — LiftAndBurn</title>
+        <title>Treadmill Calorie Calculator — LiftAndBurn</title>
         <link rel="canonical" href="https://liftandburn.fit/" />
         <meta name="description" content="Calculate METs, VO2, and calories burned walking or running using ACSM metabolic equations. Enter speed, grade, body weight and duration." />
       </Helmet>
 
       <div className="calc-page container">
         <div className="calc-breadcrumb">
-          <Link to="/calculators">Calculators</Link> › Walk / Run Metabolic
+          <Link to="/calculators">Calculators</Link> › Treadmill Calorie Calculator
         </div>
 
-        <h1 className="calc-page__title">Walk / Run Metabolic Calculator</h1>
+        <h1 className="calc-page__title">Treadmill Calorie Calculator</h1>
 
         <div className="calc-layout">
           <div className="calc-main">

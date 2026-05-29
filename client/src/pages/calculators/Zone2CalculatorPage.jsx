@@ -8,7 +8,6 @@ export default function Zone2CalculatorPage() {
     <>
       <Helmet>
         <title>Zone 2 Heart Rate Calculator — LiftAndBurn</title>
-        <link rel="canonical" href="https://liftandburn.fit/" />
         <meta name="description" content="Calculate your Zone 2 heart rate range for optimal fat-burning steady-state cardio. Based on your age using the standard 220-minus-age formula." />
       </Helmet>
       <div className="calc-page container">
@@ -26,7 +25,7 @@ export default function Zone2CalculatorPage() {
               <div className="calc-links">
                 <Link to="/articles/zone-2-cardio-beginners-guide">Zone 2 Complete Guide →</Link>
                 <span>|</span>
-                <Link to="/calculators/walk-run">Walk / Run Calculator</Link>
+                <Link to="/calculators/treadmill-calorie-calculator">Walk / Run Calculator</Link>
                 <span>|</span>
                 <Link to="/calculators">All Calculators</Link>
               </div>
@@ -36,7 +35,7 @@ export default function Zone2CalculatorPage() {
             <div className="adsense-slot" style={{ minHeight: 250 }}>AdSense · 300×250</div>
             <div className="calc-related">
               <h3>Related Calculators</h3>
-              <Link to="/calculators/walk-run">Walk / Run Metabolic</Link>
+              <Link to="/calculators/treadmill-calorie-calculator">Walk / Run Metabolic</Link>
               <Link to="/calculators/steps">Step Metabolic</Link>
               <Link to="/calculators/calories">Calories Burned</Link>
               <Link to="/calculators/one-rep-max">One Rep Max</Link>

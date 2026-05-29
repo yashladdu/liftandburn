@@ -6,7 +6,7 @@ const SECTIONS = [
   {
     title: 'Metabolic Calculators',
     calcs: [
-      { icon: '🚶', title: 'Walk / Run',  desc: 'METs, VO2, and calories burned walking or running on a treadmill.', to: '/calculators/walk-run' },
+      { icon: '🚶', title: 'Walk / Run',  desc: 'METs, VO2, and calories burned walking or running on a treadmill.', to: '/calculators/treadmill-calorie-calculator' },
       { icon: '👟', title: 'Steps to Calories', desc: 'How many calories does walking 10,000 steps burn? Enter your steps, weight and pace.', to: '/calculators/steps' },
     ],
   },
@@ -37,7 +37,6 @@ export default function CalculatorsHubPage() {
     <>
       <Helmet>
         <title>Fitness Calculators — LiftAndBurn</title>
-        <link rel="canonical" href="https://liftandburn.fit/" />
         <meta name="description" content="Free fitness calculators for hybrid athletes — metabolic calculators, strength tools, and unit converters. No sign-up required." />
       </Helmet>
 
