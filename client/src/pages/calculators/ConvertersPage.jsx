@@ -288,10 +288,25 @@ export default function ConvertersPage() {
 
             <div className="adsense-slot">AdSense · 728×90</div>
             <div className="calc-instructions">
+              <h2>Fitness unit converters</h2>
+              <p>These converters handle the unit conversions you run into most often in the gym and on the treadmill. Whether you are trying to work out what a treadmill speed in mph means in km/h, how far your steps have taken you, or how to convert weight between kilograms and pounds, these tools give you instant, accurate answers.</p>
+
+              <h2>Converting treadmill speed — mph to km/h</h2>
+              <p>Treadmills in different countries display speed in different units. Machines in the United States and United Kingdom often use miles per hour, while most of the rest of the world uses kilometres per hour. This causes constant confusion when following a workout designed in a different unit. The conversion is straightforward: 1 mph equals 1.60934 km/h. So a brisk 3 mph walk is 4.8 km/h, and a 6 mph jog is 9.7 km/h. The speed converter above does this instantly in both directions and includes a reference table of common treadmill speeds.</p>
+
+              <h2>Converting steps to distance</h2>
+              <p>The distance covered by a given number of steps depends on your stride length, which is closely tied to your height. A taller person covers more ground per step. The steps-to-distance converter uses your height to estimate your stride length and calculate how far your steps have taken you in kilometres and miles. This is useful for understanding how your daily step count translates into actual distance walked.</p>
+
+              <h2>Weight, length, and temperature</h2>
+              <p>The weight converter handles kilograms, pounds, grams, ounces, and stones — useful when following a program written in a different unit system or logging your bodyweight. The length converter covers kilometres, miles, metres, feet, and inches for tracking running and walking distances. The temperature converter handles Celsius, Fahrenheit, and Kelvin for gym and outdoor training environments.</p>
+
+              <h2>Why accurate conversions matter for training</h2>
+              <p>Small conversion errors can throw off your training. Misreading a treadmill speed, miscalculating your bodyweight for a calorie estimate, or misjudging a running distance all lead to inaccurate tracking. Using precise conversions keeps your training data consistent, which matters when you are trying to apply progressive overload or track fat loss over time.</p>
+
               <div className="calc-links">
-                <Link to="/calculators/treadmill-calorie-calculator">Walk / Run Calculator</Link>
+                <Link to="/calculators/treadmill-calorie-calculator">Treadmill Calorie Calculator</Link>
                 <span>|</span>
-                <Link to="/calculators/steps">Step Calculator</Link>
+                <Link to="/calculators/steps">Steps to Calories</Link>
                 <span>|</span>
                 <Link to="/calculators">All Calculators</Link>
               </div>
