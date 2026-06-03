@@ -85,19 +85,8 @@ export default function ArticlePage() {
   const { data, loading, error } = useFetch(() => api.articles.bySlug(slug), [slug]);
   const { data: related }        = useFetch(() => api.articles.related(slug), [slug]);
 
-    if (loading) return (
-    <>
-      <Helmet><title>Loading… — LiftAndBurn</title></Helmet>
-      <ReadingProgress />
-      <div className="article-loading container">Loading article…</div>
-    </>
-  );
-  if (error)   return (
-    <>
-      <Helmet><title>Article not found — LiftAndBurn</title></Helmet>
-      <div className="article-error container">Article not found.</div>
-    </>
-  );
+  if (loading) return <><ReadingProgress /><div className="article-loading container">Loading article…</div></>;
+  if (error)   return <div className="article-error container">Article not found.</div>;
 
   const { article } = data;
   const date = article.publishedAt
