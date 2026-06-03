@@ -25,7 +25,6 @@ import ProgramDetailPage from './pages/ProgramDetailPage';
 export default function App() {
   return (
     <HelmetProvider>
-      <Helmet defaultTitle="LiftAndBurn" titleTemplate="%s" />
       <BrowserRouter>
         <Navbar />
         <main>
