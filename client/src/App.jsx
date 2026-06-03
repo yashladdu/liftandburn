@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider, Helmet } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -25,6 +25,7 @@ import ProgramDetailPage from './pages/ProgramDetailPage';
 export default function App() {
   return (
     <HelmetProvider>
+      <Helmet defaultTitle="LiftAndBurn" titleTemplate="%s" />
       <BrowserRouter>
         <Navbar />
         <main>
