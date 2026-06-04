@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { HelmetProvider, Helmet } from 'react-helmet-async';
+import { HelmetProvider } from 'react-helmet-async';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
@@ -9,6 +9,7 @@ import CategoryPage from './pages/CategoryPage';
 import SearchPage from './pages/SearchPage';
 import CalculatorsHubPage from './pages/CalculatorsHubPage';
 import WalkRunCalculator from './pages/calculators/WalkRunCalculator';
+import MacroCalculator from './pages/calculators/MacroCalculator';
 import StepsCalculator from './pages/calculators/StepsCalculator';
 import ConvertersPage from './pages/calculators/ConvertersPage';
 import Zone2CalculatorPage from './pages/calculators/Zone2CalculatorPage';
@@ -36,6 +37,7 @@ export default function App() {
             <Route path="/search"                  element={<SearchPage />} />
             <Route path="/calculators"             element={<CalculatorsHubPage />} />
             <Route path="/calculators/treadmill-calorie-calculator"    element={<WalkRunCalculator />} />
+            <Route path="/calculators/macros"         element={<MacroCalculator />} />
             <Route path="/calculators/steps"       element={<StepsCalculator />} />
             <Route path="/calculators/converters"  element={<ConvertersPage />} />
             <Route path="/calculators/zone2"       element={<Zone2CalculatorPage />} />

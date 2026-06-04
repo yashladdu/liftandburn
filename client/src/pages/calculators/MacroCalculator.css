@@ -1,0 +1,211 @@
+/* ── Mode toggle ────────────────────────────────────────────── */
+.macro-toggle {
+  display: flex;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 4px;
+  gap: 4px;
+}
+.macro-toggle__btn {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--font-body);
+}
+.macro-toggle__btn:hover { color: var(--text); }
+.macro-toggle__btn.active {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ── Macro grid (3 columns for gram inputs) ─────────────────── */
+.macro-grid { grid-template-columns: 1fr 1fr 1fr !important; }
+@media (max-width: 600px) { .macro-grid { grid-template-columns: 1fr !important; } }
+
+/* ── Hint text ──────────────────────────────────────────────── */
+.macro-hint {
+  font-size: 11px;
+  color: var(--text-faint);
+  margin: 4px 0 0;
+  letter-spacing: 0.3px;
+}
+
+/* ── Results box ────────────────────────────────────────────── */
+.macro-results {
+  opacity: 0.4;
+  transition: opacity 0.2s ease;
+}
+.macro-results.visible { opacity: 1; }
+
+/* ── Total calorie display ──────────────────────────────────── */
+.macro-total {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.macro-total__label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 500;
+}
+.macro-total__value {
+  font-family: var(--font-display);
+  font-size: 48px;
+  line-height: 1;
+  color: var(--accent);
+}
+.macro-total__unit {
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+/* ── Stacked bar ────────────────────────────────────────────── */
+.macro-bar {
+  display: flex;
+  height: 10px;
+  border-radius: 99px;
+  overflow: hidden;
+  margin: 16px 0;
+  background: var(--bg-raised);
+}
+.macro-bar__segment {
+  height: 100%;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.macro-bar__protein { background: var(--accent); }
+.macro-bar__carbs   { background: #4a9eff; }
+.macro-bar__fat     { background: #f59e0b; }
+
+/* ── Macro breakdown cards ──────────────────────────────────── */
+.macro-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 4px;
+}
+.macro-card {
+  background: var(--bg-raised);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-left: 3px solid transparent;
+}
+.macro-card--protein { border-left-color: var(--accent); }
+.macro-card--carbs   { border-left-color: #4a9eff; }
+.macro-card--fat     { border-left-color: #f59e0b; }
+
+.macro-card__label {
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 500;
+}
+.macro-card__kcal {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  font-family: var(--font-display);
+}
+.macro-card__grams {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  font-family: var(--font-display);
+  line-height: 1;
+}
+.macro-card__pct {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+@media (max-width: 500px) {
+  .macro-cards { grid-template-columns: 1fr; }
+}
+
+/* ── Split label ────────────────────────────────────────────── */
+.macro-split-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ── Preset pills ───────────────────────────────────────────── */
+.macro-presets { margin-top: 20px; }
+.macro-presets__label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 10px;
+}
+.macro-presets__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.macro-preset {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transition: all 0.15s ease;
+  font-family: var(--font-body);
+}
+.macro-preset:hover { border-color: var(--accent); }
+.macro-preset.active {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg-raised));
+}
+.macro-preset__name {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+.macro-preset__desc {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+.macro-preset__split {
+  font-size: 10px;
+  color: var(--text-faint);
+  margin-top: 2px;
+  font-variant-numeric: tabular-nums;
+}
+@media (max-width: 600px) {
+  .macro-presets__grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── Custom split ───────────────────────────────────────────── */
+.macro-custom { margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+.macro-custom__warning {
+  font-size: 12px;
+  color: #ef4444;
+  margin-bottom: 12px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.macro-custom__warning.show { opacity: 1; }
