@@ -18,7 +18,6 @@ export default function SearchPage() {
     <>
       <Helmet>
         <title>{q ? `"${q}" — Search` : 'Search'} — LiftAndBurn</title>
-        <link rel="canonical" href="https://liftandburn.fit/" />
       </Helmet>
 
       <div className="list-page container">

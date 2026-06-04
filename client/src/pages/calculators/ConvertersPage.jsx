@@ -260,6 +260,7 @@ export default function ConvertersPage() {
     <>
       <Helmet>
         <title>Fitness Converters — mph to km/h, Steps, Weight, Temperature | LiftAndBurn</title>
+        <link rel="canonical" href="https://liftandburn.fit/calculators/converters" />
         <meta name="description" content="Free fitness converters — mph to km/h, steps to distance, weight, length, and temperature. Includes a treadmill speed reference table." />
       </Helmet>
 

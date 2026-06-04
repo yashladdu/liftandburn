@@ -81,6 +81,7 @@ export default function StepsCalculator() {
     <>
       <Helmet>
         <title>Steps to Calories Calculator — How Many Calories Do Steps Burn? | LiftAndBurn</title>
+        <link rel="canonical" href="https://liftandburn.fit/calculators/steps" />
         <meta name="description" content="Calculate how many calories you burn walking based on your step count, body weight, and pace. Includes distance, duration, and fat burned." />
       </Helmet>
 

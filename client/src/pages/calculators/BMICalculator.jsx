@@ -77,7 +77,7 @@ export default function BMICalculator() {
     <>
       <Helmet>
         <title>BMI Calculator — Body Mass Index | LiftAndBurn</title>
-        <link rel="canonical" href="https://liftandburn.fit/" />
+        <link rel="canonical" href="https://liftandburn.fit/calculators/bmi" />
         <meta name="description" content="Calculate your BMI (Body Mass Index) instantly. Includes healthy weight range, category breakdown, and why BMI has limitations for muscular and athletic people." />
       </Helmet>
 

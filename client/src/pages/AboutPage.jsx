@@ -21,7 +21,7 @@ export default function AboutPage() {
     <>
       <Helmet>
         <title>About LiftAndBurn — Hybrid Athlete Training</title>
-        <link rel="canonical" href="https://liftandburn.fit/" />
+        <link rel="canonical" href="https://liftandburn.fit/about" />
         <meta name="description" content="LiftAndBurn is a free training resource for people who want to lift heavy and stay lean — built by self-taught gym-goers who figured it out the hard way." />
       </Helmet>
 

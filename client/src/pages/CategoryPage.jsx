@@ -26,7 +26,7 @@ export default function CategoryPage() {
     <>
       <Helmet>
         <title>{title} — LiftAndBurn</title>
-        <link rel="canonical" href="https://liftandburn.fit/" />
+        <link rel="canonical" href={`https://liftandburn.fit/category/${name}`} />
         <meta name="description" content={meta.desc} />
       </Helmet>
 

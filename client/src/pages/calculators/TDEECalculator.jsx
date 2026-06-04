@@ -199,6 +199,7 @@ export default function TDEECalculator() {
     <>
       <Helmet>
         <title>TDEE Calculator — Total Daily Energy Expenditure | LiftAndBurn</title>
+        <link rel="canonical" href="https://liftandburn.fit/calculators/tdee" />
         <meta name="description" content="Calculate your TDEE (Total Daily Energy Expenditure) and daily calorie needs using Mifflin-St Jeor, Harris-Benedict, and Katch-McArdle equations. Includes macro breakdown." />
       </Helmet>
 

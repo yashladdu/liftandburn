@@ -25,7 +25,7 @@ export default function ContactPage() {
     <>
       <Helmet>
         <title>Contact — LiftAndBurn</title>
-        <link rel="canonical" href="https://liftandburn.fit/" />
+        <link rel="canonical" href="https://liftandburn.fit/contact" />
         <meta name="description" content="Get in touch with the LiftAndBurn team — questions, feedback, or content suggestions." />
       </Helmet>
 
