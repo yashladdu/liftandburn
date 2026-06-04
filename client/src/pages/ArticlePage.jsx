@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { api } from '../api';
@@ -12,9 +12,9 @@ function ReadingProgress() {
 
   useEffect(() => {
     const update = () => {
-      const scrollTop    = window.scrollY;
-      const docHeight    = document.documentElement.scrollHeight - window.innerHeight;
-      const pct          = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct       = docHeight > 0 ? Math.min((scrollTop / docHeight) * 100, 100) : 0;
       setProgress(pct);
     };
     window.addEventListener('scroll', update, { passive: true });
@@ -68,118 +68,161 @@ function ShareButtons({ title, url }) {
         </svg>
         <span>WhatsApp</span>
       </button>
-      <button className={`share-btn share-btn--copy ${copied ? 'copied' : ''}`} onClick={copyLink} aria-label="Copy link">
+      <button
+        className={`share-btn share-btn--copy ${copied ? 'copied' : ''}`}
+        onClick={copyLink}
+        aria-label="Copy link"
+      >
         {copied ? (
-          <><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Copied!</span></>
+          <>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+            <span>Copied!</span>
+          </>
         ) : (
-          <><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg><span>Copy link</span></>
+          <>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
+              <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
+            </svg>
+            <span>Copy link</span>
+          </>
         )}
       </button>
     </div>
   );
 }
 
+// ── Main page ─────────────────────────────────────────────────
 export default function ArticlePage() {
   const { slug } = useParams();
 
   const { data, loading, error } = useFetch(() => api.articles.bySlug(slug), [slug]);
   const { data: related }        = useFetch(() => api.articles.related(slug), [slug]);
 
-  if (loading) return <><ReadingProgress /><div className="article-loading container">Loading article…</div></>;
-  if (error)   return <div className="article-error container">Article not found.</div>;
+  // Derive values safely — undefined while loading
+  const article     = data?.article ?? null;
+  const title       = article?.title       ?? '';
+  const description = article?.description ?? '';
+  const pageUrl     = article ? `https://liftandburn.fit/articles/${article.slug}` : '';
 
-  const { article } = data;
-  const date = article.publishedAt
-    ? new Date(article.publishedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
+  const date = article?.publishedAt
+    ? new Date(article.publishedAt).toLocaleDateString('en-GB', {
+        day: 'numeric', month: 'long', year: 'numeric',
+      })
     : null;
-
-  const pageUrl = `https://liftandburn.fit/articles/${article.slug}`;
 
   return (
     <>
+      {/*
+       * Helmet is ALWAYS mounted at the top level — never inside an early return.
+       * On first render it writes a fallback title; once `article` resolves it
+       * re-fires and react-helmet-async updates <title> correctly.
+       */}
       <Helmet>
-        <link rel="canonical" href={pageUrl} />
-        <title>{article.title} — LiftAndBurn</title>
-        <meta name="description"         content={article.description} />
-        <meta property="og:title"        content={`${article.title} — LiftAndBurn`} />
-        <meta property="og:description"  content={article.description} />
-        <meta property="og:url"          content={pageUrl} />
-        <meta property="og:type"         content="article" />
+        <link rel="canonical" href={pageUrl || `https://liftandburn.fit/articles/${slug}`} />
+        <title>{title ? `${title} — LiftAndBurn` : 'LiftAndBurn'}</title>
+        <meta name="description"        content={description} />
+        <meta property="og:title"       content={title ? `${title} — LiftAndBurn` : 'LiftAndBurn'} />
+        <meta property="og:description" content={description} />
+        <meta property="og:url"         content={pageUrl} />
+        <meta property="og:type"        content="article" />
         <meta name="twitter:card"        content="summary" />
-        <meta name="twitter:title"       content={article.title} />
-        <meta name="twitter:description" content={article.description} />
+        <meta name="twitter:title"       content={title} />
+        <meta name="twitter:description" content={description} />
       </Helmet>
 
-      {/* Reading progress bar — fixed at top of viewport */}
+      {/* Reading progress bar — always visible */}
       <ReadingProgress />
 
-      <div className="article-page container">
+      {/* ── Loading state ────────────────────────────────────── */}
+      {loading && (
+        <div className="article-loading container">Loading article…</div>
+      )}
 
-        {/* ── Header ────────────────────────────────────── */}
-        <header className="article-header fade-up">
-          <div className="article-header__meta">
-            <Link to={`/category/${article.category}`} className="tag accent">
-              {article.category}
-            </Link>
-            {article.readingTime && (
-              <span className="article-header__read-badge">
-                📖 {article.readingTime} min read
-              </span>
+      {/* ── Error state ──────────────────────────────────────── */}
+      {error && (
+        <div className="article-error container">Article not found.</div>
+      )}
+
+      {/* ── Full article (rendered only when data is ready) ──── */}
+      {article && (
+        <div className="article-page container">
+
+          {/* ── Header ───────────────────────────────────────── */}
+          <header className="article-header fade-up">
+            <div className="article-header__meta">
+              <Link to={`/category/${article.category}`} className="tag accent">
+                {article.category}
+              </Link>
+              {article.readingTime && (
+                <span className="article-header__read-badge">
+                  📖 {article.readingTime} min read
+                </span>
+              )}
+              {date && <span className="article-header__date">{date}</span>}
+            </div>
+            <h1 className="article-header__title">{article.title}</h1>
+            {article.description && (
+              <p className="article-header__desc">{article.description}</p>
             )}
-            {date && <span className="article-header__date">{date}</span>}
+            <ShareButtons title={article.title} url={pageUrl} />
+            {article.tags?.length > 0 && (
+              <div className="article-header__tags">
+                {article.tags.map((t) => (
+                  <span key={t} className="tag">{t}</span>
+                ))}
+              </div>
+            )}
+          </header>
+
+          {/* ── AdSense top ──────────────────────────────────── */}
+          <div className="adsense-slot">AdSense · 728×90</div>
+
+          {/* ── Body + Sidebar ───────────────────────────────── */}
+          <div className="article-layout">
+            <article
+              className="article-body fade-up-2"
+              dangerouslySetInnerHTML={{ __html: article.html }}
+            />
+
+            <aside className="article-sidebar">
+              <div className="sidebar-card">
+                <span className="sidebar-card__title">About</span>
+                <p className="sidebar-card__text">
+                  LiftAndBurn covers hybrid athlete training — combining heavy lifting
+                  with steady-state cardio for strength, endurance, and body recomposition.
+                </p>
+                <Link to="/articles" className="sidebar-card__link">Browse all articles →</Link>
+              </div>
+              <div className="adsense-slot" style={{ minHeight: 250 }}>AdSense · 300×250</div>
+            </aside>
           </div>
-          <h1 className="article-header__title">{article.title}</h1>
-          {article.description && (
-            <p className="article-header__desc">{article.description}</p>
+
+          {/* ── Bottom share bar ─────────────────────────────── */}
+          <div className="share-bar-bottom">
+            <span>Found this useful?</span>
+            <ShareButtons title={article.title} url={pageUrl} />
+          </div>
+
+          {/* ── AdSense bottom ───────────────────────────────── */}
+          <div className="adsense-slot">AdSense · 728×90</div>
+
+          {/* ── Related articles ─────────────────────────────── */}
+          {related?.articles?.length > 0 && (
+            <section className="related">
+              <h2 className="related__title">RELATED ARTICLES</h2>
+              <div className="article-list">
+                {related.articles.map((a) => (
+                  <ArticleCard key={a.slug} article={a} />
+                ))}
+              </div>
+            </section>
           )}
-          <ShareButtons title={article.title} url={pageUrl} />
-          {article.tags?.length > 0 && (
-            <div className="article-header__tags">
-              {article.tags.map((t) => <span key={t} className="tag">{t}</span>)}
-            </div>
-          )}
-        </header>
 
-        {/* ── AdSense top ───────────────────────────────── */}
-        <div className="adsense-slot">AdSense · 728×90</div>
-
-        {/* ── Body ──────────────────────────────────────── */}
-        <div className="article-layout">
-          <article className="article-body fade-up-2" dangerouslySetInnerHTML={{ __html: article.html }} />
-
-          {/* ── Sidebar ─────────────────────────────────── */}
-          <aside className="article-sidebar">
-            <div className="sidebar-card">
-              <span className="sidebar-card__title">About</span>
-              <p className="sidebar-card__text">
-                LiftAndBurn covers hybrid athlete training — combining heavy lifting
-                with steady-state cardio for strength, endurance, and body recomposition.
-              </p>
-              <Link to="/articles" className="sidebar-card__link">Browse all articles →</Link>
-            </div>
-            <div className="adsense-slot" style={{ minHeight: 250 }}>AdSense · 300×250</div>
-          </aside>
         </div>
-
-        {/* ── Bottom share bar ──────────────────────────── */}
-        <div className="share-bar-bottom">
-          <span>Found this useful?</span>
-          <ShareButtons title={article.title} url={pageUrl} />
-        </div>
-
-        {/* ── AdSense bottom ────────────────────────────── */}
-        <div className="adsense-slot">AdSense · 728×90</div>
-
-        {/* ── Related articles ──────────────────────────── */}
-        {related?.articles?.length > 0 && (
-          <section className="related">
-            <h2 className="related__title">RELATED ARTICLES</h2>
-            <div className="article-list">
-              {related.articles.map((a) => <ArticleCard key={a.slug} article={a} />)}
-            </div>
-          </section>
-        )}
-      </div>
+      )}
     </>
   );
 }
