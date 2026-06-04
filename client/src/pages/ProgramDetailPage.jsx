@@ -46,98 +46,123 @@ export default function ProgramDetailPage() {
   const { slug } = useParams();
   const { data, loading, error } = useFetch(() => api.programs.bySlug(slug), [slug]);
 
-  if (loading) return <div className="article-loading container">Loading program…</div>;
-  if (error)   return <div className="article-error container">Program not found.</div>;
-
-  const { program } = data;
-  const colour = DIFFICULTY_COLOUR[program.difficulty] || '#888';
+  // Derive values safely — undefined while loading
+  const program     = data?.program ?? null;
+  const title       = program?.title       ?? '';
+  const description = program?.description ?? '';
+  const pageUrl     = `https://liftandburn.fit/programs/${slug}`;
+  const colour      = DIFFICULTY_COLOUR[program?.difficulty] || '#888';
 
   return (
     <>
+      {/*
+       * Helmet always mounted — never inside an early return.
+       * Renders fallback title while loading, real title once data resolves.
+       */}
       <Helmet>
-        <title>{program.title} — LiftAndBurn</title>
-        <meta name="description" content={program.description} />
-        <link rel="canonical" href={`https://liftandburn.fit/programs/${program.slug}`} />
+        <title>{title ? `${title} — LiftAndBurn` : 'LiftAndBurn'}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:title"        content={title ? `${title} — LiftAndBurn` : 'LiftAndBurn'} />
+        <meta property="og:description"  content={description} />
+        <meta property="og:url"          content={pageUrl} />
+        <meta property="og:type"         content="website" />
+        <meta name="twitter:card"        content="summary" />
+        <meta name="twitter:title"       content={title} />
+        <meta name="twitter:description" content={description} />
       </Helmet>
 
-      <div className="program-detail container">
+      {/* ── Loading state ──────────────────────────────────── */}
+      {loading && (
+        <div className="article-loading container">Loading program…</div>
+      )}
 
-        {/* ── Header ──────────────────────────────────── */}
-        <header className="program-detail__header fade-up">
-          <div className="calc-breadcrumb">
-            <Link to="/programs">Programs</Link> › {program.title}
-          </div>
+      {/* ── Error state ────────────────────────────────────── */}
+      {error && (
+        <div className="article-error container">Program not found.</div>
+      )}
 
-          <div className="program-detail__badges">
-            <span className="program-card__difficulty" style={{ borderColor: colour, color: colour }}>
-              {program.difficulty}
-            </span>
-            <span className="tag">{program.category}</span>
-            <span className="tag">📅 {program.duration} weeks</span>
-            <span className="tag">💪 {program.daysPerWeek} days/week</span>
-          </div>
+      {/* ── Full program (rendered only when data is ready) ── */}
+      {program && (
+        <div className="program-detail container">
 
-          <h1 className="program-detail__title">{program.title}</h1>
-          <p className="program-detail__desc">{program.description}</p>
-
-          {program.equipment?.length > 0 && (
-            <div className="program-detail__equipment">
-              <span className="program-detail__equipment-label">Equipment needed:</span>
-              {program.equipment.map(e => <span key={e} className="tag">{e}</span>)}
+          {/* ── Header ──────────────────────────────────── */}
+          <header className="program-detail__header fade-up">
+            <div className="calc-breadcrumb">
+              <Link to="/programs">Store</Link> › {program.title}
             </div>
-          )}
 
-          {program.highlights?.length > 0 && (
-            <ul className="program-detail__highlights">
-              {program.highlights.map((h, i) => (
-                <li key={i}><span>✓</span>{h}</li>
-              ))}
-            </ul>
-          )}
-        </header>
+            <div className="program-detail__badges">
+              <span className="program-card__difficulty" style={{ borderColor: colour, color: colour }}>
+                {program.difficulty}
+              </span>
+              <span className="tag">{program.category}</span>
+              <span className="tag">📅 {program.duration} weeks</span>
+              <span className="tag">💪 {program.daysPerWeek} days/week</span>
+            </div>
 
-        {/* ── AdSense ─────────────────────────────────── */}
-        <div className="adsense-slot">AdSense · 728×90</div>
+            <h1 className="program-detail__title">{program.title}</h1>
+            <p className="program-detail__desc">{program.description}</p>
 
-        {/* ── Preview content (overview + philosophy) ──── */}
-        <div
-          className="article-body program-body"
-          dangerouslySetInnerHTML={{ __html: program.previewHtml }}
-        />
+            {program.equipment?.length > 0 && (
+              <div className="program-detail__equipment">
+                <span className="program-detail__equipment-label">Equipment needed:</span>
+                {program.equipment.map(e => <span key={e} className="tag">{e}</span>)}
+              </div>
+            )}
 
-        {/* ── Buy box ──────────────────────────────────── */}
-        <BuyButton gumroadUrl={program.gumroadUrl} price={program.price} />
+            {program.highlights?.length > 0 && (
+              <ul className="program-detail__highlights">
+                {program.highlights.map((h, i) => (
+                  <li key={i}><span>✓</span>{h}</li>
+                ))}
+              </ul>
+            )}
+          </header>
 
-        {/* ── Locked content blur ──────────────────────── */}
-        {program.hasLockedContent && (
-          <div className="program-locked">
-            <div
-              className="program-locked__content article-body"
-              dangerouslySetInnerHTML={{ __html: program.lockedHtml }}
-            />
-            <div className="program-locked__overlay">
-              <div className="program-locked__cta">
-                <span className="program-locked__icon">🔒</span>
-                <h3>The full program is in the PDF</h3>
-                <p>All four sessions in full, the complete 12-week schedule, superset guide, warm-up protocols, nutrition guide, and progress tracking templates.</p>
-                <a
-                  href={program.gumroadUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="buy-box__btn"
-                  style={{ display: 'inline-block', marginTop: 16 }}
-                >
-                  Get Full Program — ${program.price} →
-                </a>
+          {/* ── AdSense ─────────────────────────────────── */}
+          <div className="adsense-slot">AdSense · 728×90</div>
+
+          {/* ── Preview content ──────────────────────────── */}
+          <div
+            className="article-body program-body"
+            dangerouslySetInnerHTML={{ __html: program.previewHtml }}
+          />
+
+          {/* ── Buy box ──────────────────────────────────── */}
+          <BuyButton gumroadUrl={program.gumroadUrl} price={program.price} />
+
+          {/* ── Locked content blur ──────────────────────── */}
+          {program.hasLockedContent && (
+            <div className="program-locked">
+              <div
+                className="program-locked__content article-body"
+                dangerouslySetInnerHTML={{ __html: program.lockedHtml }}
+              />
+              <div className="program-locked__overlay">
+                <div className="program-locked__cta">
+                  <span className="program-locked__icon">🔒</span>
+                  <h3>The full program is in the PDF</h3>
+                  <p>All four sessions in full, the complete 12-week schedule, superset guide, warm-up protocols, nutrition guide, and progress tracking templates.</p>
+                  <a
+                    href={program.gumroadUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="buy-box__btn"
+                    style={{ display: 'inline-block', marginTop: 16 }}
+                  >
+                    Get Full Program — ${program.price} →
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* ── Bottom AdSense ───────────────────────────── */}
-        <div className="adsense-slot">AdSense · 728×90</div>
+          {/* ── Bottom AdSense ───────────────────────────── */}
+          <div className="adsense-slot">AdSense · 728×90</div>
 
-      </div>
+        </div>
+      )}
     </>
   );
 }
