@@ -159,6 +159,8 @@ For an 80kg person at 2,600 calories per day:
 
 This is a performance-oriented distribution. It fuels training well, supports recovery, and provides adequate protein for muscle growth — without over-allocating to protein at the expense of the other macronutrients.
 
+For a ranked list of the best protein sources with full nutrition data, see our [high protein foods reference page](/high-protein-foods).
+
 ---
 
 ## The bottom line

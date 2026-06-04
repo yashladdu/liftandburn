@@ -20,6 +20,14 @@ export default function Footer() {
             <Link to="/calculators">Calculators</Link>
           </div>
           <div className="footer__col">
+            <span className="footer__col-title">Nutrition</span>
+            <Link to="/high-protein-foods">High Protein Foods</Link>
+            <Link to="/high-fibre-foods">High Fibre Foods</Link>
+            <Link to="/low-calorie-high-volume-foods">Low Calorie Foods</Link>
+            <Link to="/cheapest-protein-sources">Cheapest Protein Sources</Link>
+            <Link to="/best-foods-for-each-macro">Best Foods by Macro</Link>
+          </div>
+          <div className="footer__col">
             <span className="footer__col-title">Site</span>
             <Link to="/articles">All Articles</Link>
             <Link to="/about">About</Link>
@@ -32,7 +40,6 @@ export default function Footer() {
       <div className="footer__bottom">
         <div className="container">
           <span>© {new Date().getFullYear()} LiftAndBurn. All rights reserved.</span>
-          <span>Built with React + Node</span>
         </div>
       </div>
     </footer>

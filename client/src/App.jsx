@@ -11,6 +11,7 @@ import CalculatorsHubPage from './pages/CalculatorsHubPage';
 import WalkRunCalculator from './pages/calculators/WalkRunCalculator';
 import MacroCalculator from './pages/calculators/MacroCalculator';
 import BodyFatCalculator from './pages/calculators/BodyFatCalculator';
+import HighProteinFoodsPage from './pages/HighProteinFoodsPage';
 import StepsCalculator from './pages/calculators/StepsCalculator';
 import ConvertersPage from './pages/calculators/ConvertersPage';
 import Zone2CalculatorPage from './pages/calculators/Zone2CalculatorPage';
@@ -40,6 +41,7 @@ export default function App() {
             <Route path="/calculators/treadmill-calorie-calculator"    element={<WalkRunCalculator />} />
             <Route path="/calculators/macros"         element={<MacroCalculator />} />
             <Route path="/calculators/body-fat"       element={<BodyFatCalculator />} />
+            <Route path="/high-protein-foods"      element={<HighProteinFoodsPage />} />
             <Route path="/calculators/steps"       element={<StepsCalculator />} />
             <Route path="/calculators/converters"  element={<ConvertersPage />} />
             <Route path="/calculators/zone2"       element={<Zone2CalculatorPage />} />
