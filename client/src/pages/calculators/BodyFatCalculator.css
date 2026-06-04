@@ -1,0 +1,218 @@
+/* ── Toggles ────────────────────────────────────────────────── */
+.bf-toggles {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.bf-toggle-group {
+  display: flex;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 4px;
+  gap: 4px;
+}
+.bf-toggle {
+  padding: 8px 16px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.bf-toggle:hover { color: var(--text); }
+.bf-toggle.active {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ── Section labels / tips ──────────────────────────────────── */
+.bf-section-label {
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.bf-tip {
+  font-size: 10px;
+  color: var(--text-faint);
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.bf-note {
+  font-size: 11px;
+  color: var(--text-faint);
+  margin-top: 12px;
+  font-style: italic;
+}
+
+/* ── Results box ────────────────────────────────────────────── */
+.bf-results { animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── Primary result ─────────────────────────────────────────── */
+.bf-primary {
+  text-align: center;
+  padding: 20px 0 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 20px;
+}
+.bf-primary__label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 8px;
+}
+.bf-primary__value {
+  font-family: var(--font-display);
+  font-size: 72px;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+.bf-primary__value span {
+  font-size: 28px;
+  margin-left: 4px;
+}
+.bf-primary__cat {
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 6px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* ── Gauge ──────────────────────────────────────────────────── */
+.bf-gauge { margin: 0 auto; max-width: 360px; }
+.bf-gauge__track {
+  position: relative;
+  height: 12px;
+  border-radius: 99px;
+  background: linear-gradient(to right, #4a9eff 0%, #4ade80 20%, #a3e635 35%, #f59e0b 60%, #ef4444 100%);
+  overflow: visible;
+}
+.bf-gauge__fill {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  border-radius: 99px;
+  pointer-events: none;
+}
+.bf-gauge__needle {
+  position: absolute;
+  top: -4px;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 20px;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  transition: left 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+.bf-gauge__labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text-faint);
+  margin-top: 6px;
+}
+
+/* ── Other method cards ─────────────────────────────────────── */
+.bf-method-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.bf-result-card {
+  background: var(--bg-raised);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.bf-result-card__method {
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+.bf-result-card__value {
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 1.1;
+}
+.bf-result-card__unit { font-size: 14px; }
+.bf-result-card__cat {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.bf-result-card__note {
+  font-size: 10px;
+  color: var(--text-faint);
+  margin-top: 2px;
+}
+@media (max-width: 500px) {
+  .bf-method-cards { grid-template-columns: 1fr; }
+}
+
+/* ── Category legend ────────────────────────────────────────── */
+.bf-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.bf-legend__item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+.bf-legend__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── Reference table ────────────────────────────────────────── */
+.bf-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 12px 0 16px;
+}
+.bf-table th {
+  text-align: left;
+  padding: 8px 12px;
+  background: var(--bg-raised);
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+}
+.bf-table td {
+  padding: 8px 12px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.bf-table tr:last-child td { border-bottom: none; }
+.bf-table tr:nth-child(even) td { background: var(--bg-raised); }

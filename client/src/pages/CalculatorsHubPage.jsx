@@ -16,6 +16,7 @@ const SECTIONS = [
   {
     title: 'Body & Cardio',
     calcs: [
+      { icon: '📐', title: 'Body Fat Calculator', desc: 'Estimate body fat % using four methods: U.S. Navy, YMCA, Jackson-Pollock 3-site skinfold, and BMI-based.', to: '/calculators/body-fat' },
       { icon: '⚖️', title: 'BMI Calculator',    desc: 'Calculate your Body Mass Index with a visual gauge, healthy weight range, and an honest explanation of why BMI is misleading for muscular people.', to: '/calculators/bmi' },
       { icon: '💓', title: 'Zone 2 Heart Rate', desc: 'Find your optimal fat-burning cardio heart rate zone based on your age.', to: '/calculators/zone2' },
     ],
