@@ -1,0 +1,226 @@
+/* ── Toggles ────────────────────────────────────────────────── */
+.ibw-toggles {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.ibw-toggle-group {
+  display: flex;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 4px;
+  gap: 4px;
+}
+.ibw-toggle {
+  padding: 8px 18px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.ibw-toggle:hover { color: var(--text); }
+.ibw-toggle.active {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ── Error ──────────────────────────────────────────────────── */
+.ibw-error {
+  font-size: 12px;
+  color: #ef4444;
+  margin-top: 8px;
+}
+
+/* ── Primary result ─────────────────────────────────────────── */
+.ibw-primary {
+  text-align: center;
+}
+.ibw-primary__label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 8px;
+}
+.ibw-primary__value {
+  font-family: var(--font-display);
+  font-size: 64px;
+  line-height: 1;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.ibw-primary__range {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+/* ── Range bar ──────────────────────────────────────────────── */
+.ibw-rangebar { padding: 0 8px; }
+.ibw-rangebar__track {
+  position: relative;
+  height: 12px;
+  background: var(--bg-raised);
+  border-radius: 99px;
+  margin-bottom: 6px;
+  border: 1px solid var(--border);
+}
+.ibw-rangebar__band {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+  border-radius: 99px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ibw-rangebar__needle {
+  position: absolute;
+  top: -3px;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 18px;
+  background: var(--text-muted);
+  border-radius: 2px;
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+.ibw-rangebar__needle:hover { background: var(--text); }
+.ibw-rangebar__avg {
+  position: absolute;
+  top: -6px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.ibw-rangebar__avg-line {
+  width: 3px;
+  height: 24px;
+  background: var(--accent);
+  border-radius: 2px;
+  box-shadow: 0 0 6px color-mix(in srgb, var(--accent) 60%, transparent);
+}
+.ibw-rangebar__avg-label {
+  font-size: 9px;
+  color: var(--accent);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.ibw-rangebar__ends {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--text-faint);
+  padding: 0 2px;
+}
+
+/* ── Section label ──────────────────────────────────────────── */
+.ibw-section-label {
+  font-size: 11px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ── Formula cards ──────────────────────────────────────────── */
+.ibw-formula-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+.ibw-formula-card {
+  background: var(--bg-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color 0.15s;
+}
+.ibw-formula-card:hover { border-color: var(--accent); }
+.ibw-formula-card__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+.ibw-formula-card__name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.ibw-formula-card__year {
+  font-size: 10px;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+.ibw-formula-card__value {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--accent);
+  line-height: 1.1;
+}
+.ibw-formula-card__note {
+  font-size: 11px;
+  color: var(--text-faint);
+  line-height: 1.4;
+}
+
+/* ── Context box ────────────────────────────────────────────── */
+.ibw-context-box {
+  display: flex;
+  gap: 14px;
+  background: rgba(245, 158, 11, 0.07);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.ibw-context-box__icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.ibw-context-box strong {
+  display: block;
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+.ibw-context-box p { margin: 0 0 8px; }
+.ibw-context-box p:last-of-type { margin-bottom: 10px; }
+.ibw-context-box__links {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+  border-top: 1px solid rgba(245, 158, 11, 0.2);
+}
+.ibw-context-box__links a {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+}
+.ibw-context-box__links a:hover { text-decoration: underline; }
+
+@media (max-width: 500px) {
+  .ibw-formula-grid { grid-template-columns: 1fr; }
+  .ibw-primary__value { font-size: 48px; }
+}

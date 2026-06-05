@@ -11,6 +11,7 @@ import CalculatorsHubPage from './pages/CalculatorsHubPage';
 import WalkRunCalculator from './pages/calculators/WalkRunCalculator';
 import MacroCalculator from './pages/calculators/MacroCalculator';
 import BodyFatCalculator from './pages/calculators/BodyFatCalculator';
+import IdealWeightCalculator from './pages/calculators/IdealWeightCalculator';
 import HighProteinFoodsPage from './pages/HighProteinFoodsPage';
 import HighFibreFoodsPage from './pages/HighFibreFoodsPage';
 import LowCalorieFoodsPage from './pages/LowCalorieFoodsPage';
@@ -45,6 +46,7 @@ export default function App() {
             <Route path="/calculators/treadmill-calorie-calculator"    element={<WalkRunCalculator />} />
             <Route path="/calculators/macros"         element={<MacroCalculator />} />
             <Route path="/calculators/body-fat"       element={<BodyFatCalculator />} />
+            <Route path="/calculators/ideal-weight"    element={<IdealWeightCalculator />} />
             <Route path="/high-protein-foods"      element={<HighProteinFoodsPage />} />
             <Route path="/high-fibre-foods"        element={<HighFibreFoodsPage />} />
             <Route path="/low-calorie-high-volume-foods" element={<LowCalorieFoodsPage />} />
