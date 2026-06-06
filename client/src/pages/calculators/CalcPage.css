@@ -1,5 +1,5 @@
 /* ── Page shell ────────────────────────────────────────────── */
-.calc-page { padding: 32px 0 80px; }
+.calc-page { padding: 32px 10px 40px 10px; }
 
 .calc-breadcrumb {
   font-size: 12px;

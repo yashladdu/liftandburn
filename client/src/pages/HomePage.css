@@ -40,7 +40,7 @@
 ══════════════════════════════════════════════════════════════ */
 .hero {
   border-bottom: 1px solid var(--border);
-  padding: 80px 0 72px;
+  padding: 40px 0 72px;
   background:
     radial-gradient(ellipse 55% 60% at 80% 50%, rgba(216,90,48,0.07) 0%, transparent 70%),
     radial-gradient(ellipse 30% 40% at 20% 80%, rgba(74,158,255,0.04) 0%, transparent 60%);
