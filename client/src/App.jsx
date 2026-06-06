@@ -12,6 +12,12 @@ import WalkRunCalculator from './pages/calculators/WalkRunCalculator';
 import MacroCalculator from './pages/calculators/MacroCalculator';
 import BodyFatCalculator from './pages/calculators/BodyFatCalculator';
 import IdealWeightCalculator from './pages/calculators/IdealWeightCalculator';
+import CalorieDeficitCalculator from './pages/calculators/CalorieDeficitCalculator';
+import WaterIntakeCalculator from './pages/calculators/WaterIntakeCalculator';
+import LeanBodyMassCalculator from './pages/calculators/LeanBodyMassCalculator';
+import WilksDotsCalculator from './pages/calculators/WilksDotsCalculator';
+import PlateLoadingCalculator from './pages/calculators/PlateLoadingCalculator';
+import StrengthStandardsCalculator from './pages/calculators/StrengthStandardsCalculator';
 import HighProteinFoodsPage from './pages/HighProteinFoodsPage';
 import HighFibreFoodsPage from './pages/HighFibreFoodsPage';
 import LowCalorieFoodsPage from './pages/LowCalorieFoodsPage';
@@ -46,7 +52,13 @@ export default function App() {
             <Route path="/calculators/treadmill-calorie-calculator"    element={<WalkRunCalculator />} />
             <Route path="/calculators/macros"         element={<MacroCalculator />} />
             <Route path="/calculators/body-fat"       element={<BodyFatCalculator />} />
-            <Route path="/calculators/ideal-weight"    element={<IdealWeightCalculator />} />
+            <Route path="/calculators/ideal-weight"        element={<IdealWeightCalculator />} />
+            <Route path="/calculators/calorie-deficit"      element={<CalorieDeficitCalculator />} />
+            <Route path="/calculators/water-intake"         element={<WaterIntakeCalculator />} />
+            <Route path="/calculators/lean-body-mass"       element={<LeanBodyMassCalculator />} />
+            <Route path="/calculators/wilks-dots"           element={<WilksDotsCalculator />} />
+            <Route path="/calculators/plate-loading"        element={<PlateLoadingCalculator />} />
+            <Route path="/calculators/strength-standards"   element={<StrengthStandardsCalculator />} />
             <Route path="/high-protein-foods"      element={<HighProteinFoodsPage />} />
             <Route path="/high-fibre-foods"        element={<HighFibreFoodsPage />} />
             <Route path="/low-calorie-high-volume-foods" element={<LowCalorieFoodsPage />} />
