@@ -9,13 +9,13 @@ const ARTICLES_DROPDOWN = [
 ];
 
 const EXERCISES_DROPDOWN = [
-  { to: '/articles/best-chest-exercises',    label: 'Chest' },
-  { to: '/articles/best-back-exercises',     label: 'Back' },
-  { to: '/articles/best-shoulder-exercises', label: 'Shoulders' },
-  { to: '/articles/best-leg-exercises',      label: 'Legs' },
-  { to: '/articles/best-bicep-exercises',    label: 'Biceps' },
-  { to: '/articles/best-tricep-exercises',   label: 'Triceps' },
-  { to: '/articles/best-ab-exercises',       label: 'Abs' },
+  { to: '/articles/best-chest-exercises',    label: 'Best Chest Exercises' },
+  { to: '/articles/best-back-exercises',     label: 'Best Back Exercises' },
+  { to: '/articles/best-shoulder-exercises', label: 'Best Shoulder Exercises' },
+  { to: '/articles/best-leg-exercises',      label: 'Best Leg Exercises' },
+  { to: '/articles/best-bicep-exercises',    label: 'Best Bicep Exercises' },
+  { to: '/articles/best-tricep-exercises',   label: 'Best Tricep Exercises' },
+  { to: '/articles/best-ab-exercises',       label: 'Best Ab Exercises' },
 ];
 
 const NUTRITION_DROPDOWN = [
@@ -26,6 +26,7 @@ const NUTRITION_DROPDOWN = [
   { to: '/best-foods-for-each-macro',     label: 'Best Foods by Macro' },
 ];
 
+// ── Desktop dropdown ──────────────────────────────────────────
 function Dropdown({ label, footer, children, closeAll }) {
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
@@ -66,6 +67,30 @@ function Dropdown({ label, footer, children, closeAll }) {
   );
 }
 
+// ── Mobile accordion ──────────────────────────────────────────
+function MobileAccordion({ label, children }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className="mobile-accordion">
+      <button
+        className={`mobile-accordion__trigger ${open ? 'open' : ''}`}
+        onClick={() => setOpen(o => !o)}
+      >
+        {label}
+        <svg className="nav-dropdown__chevron" width="10" height="10" viewBox="0 0 10 10" fill="none">
+          <path d="M2 3.5L5 6.5L8 3.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+        </svg>
+      </button>
+      {open && (
+        <div className="mobile-accordion__body">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Main Navbar ───────────────────────────────────────────────
 export default function Navbar() {
   const [query,      setQuery]      = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
@@ -102,7 +127,6 @@ export default function Navbar() {
 
         {/* ── Desktop nav ───────────────────────────── */}
         <nav className="navbar__links">
-
           <Dropdown
             label="Articles"
             footer={{ to: '/articles', label: 'All Articles →' }}
@@ -131,7 +155,6 @@ export default function Navbar() {
 
           <Link to="/calculators" className="navbar__link--highlight">Calculators</Link>
           <Link to="/programs">Store</Link>
-
         </nav>
 
         <div className="navbar__right">
@@ -143,7 +166,6 @@ export default function Navbar() {
           >
             {darkMode ? '☀️' : '🌙'}
           </button>
-
           <button
             className="navbar__icon-btn"
             onClick={() => { setSearchOpen(o => !o); setMenuOpen(false); }}
@@ -151,7 +173,6 @@ export default function Navbar() {
           >
             {searchOpen ? '✕' : '⌕'}
           </button>
-
           <button
             className="navbar__hamburger"
             onClick={() => { setMenuOpen(o => !o); setSearchOpen(false); }}
@@ -186,41 +207,34 @@ export default function Navbar() {
       {menuOpen && (
         <nav className="navbar__mobile-menu">
 
-          <span className="navbar__mobile-section">Articles</span>
-          <Link to="/category/weightlifting" onClick={closeAll}>Weightlifting</Link>
-          <Link to="/category/cardio"        onClick={closeAll}>Cardio</Link>
-          <Link to="/category/recomp"        onClick={closeAll}>Body Recomp</Link>
-          <Link to="/articles"               onClick={closeAll}>All Articles →</Link>
+          <MobileAccordion label="Articles">
+            {ARTICLES_DROPDOWN.map(l => (
+              <Link key={l.to} to={l.to} className="mobile-accordion__link" onClick={closeAll}>{l.label}</Link>
+            ))}
+            <Link to="/articles" className="mobile-accordion__link mobile-accordion__link--footer" onClick={closeAll}>All Articles →</Link>
+          </MobileAccordion>
+
+          <MobileAccordion label="Exercises">
+            {EXERCISES_DROPDOWN.map(l => (
+              <Link key={l.to} to={l.to} className="mobile-accordion__link" onClick={closeAll}>{l.label}</Link>
+            ))}
+          </MobileAccordion>
+
+          <MobileAccordion label="Nutrition">
+            {NUTRITION_DROPDOWN.map(l => (
+              <Link key={l.to} to={l.to} className="mobile-accordion__link" onClick={closeAll}>{l.label}</Link>
+            ))}
+          </MobileAccordion>
 
           <div className="navbar__mobile-divider" />
 
-          <span className="navbar__mobile-section">Exercises</span>
-          <Link to="/articles/best-chest-exercises"    onClick={closeAll}>Best Chest Exercises</Link>
-          <Link to="/articles/best-back-exercises"     onClick={closeAll}>Best Back Exercises</Link>
-          <Link to="/articles/best-shoulder-exercises" onClick={closeAll}>Best Shoulder Exercises</Link>
-          <Link to="/articles/best-leg-exercises"      onClick={closeAll}>Best Leg Exercises</Link>
-          <Link to="/articles/best-bicep-exercises"    onClick={closeAll}>Best Bicep Exercises</Link>
-          <Link to="/articles/best-tricep-exercises"   onClick={closeAll}>Best Tricep Exercises</Link>
-          <Link to="/articles/best-ab-exercises"       onClick={closeAll}>Best Ab Exercises</Link>
+          <Link to="/calculators" className="navbar__mobile-plain navbar__mobile-highlight" onClick={closeAll}>Calculators</Link>
+          <Link to="/programs"    className="navbar__mobile-plain" onClick={closeAll}>Store</Link>
 
           <div className="navbar__mobile-divider" />
 
-          <span className="navbar__mobile-section">Nutrition</span>
-          <Link to="/high-protein-foods"            onClick={closeAll}>High Protein Foods</Link>
-          <Link to="/high-fibre-foods"              onClick={closeAll}>High Fibre Foods</Link>
-          <Link to="/low-calorie-high-volume-foods" onClick={closeAll}>Low Calorie Foods</Link>
-          <Link to="/cheapest-protein-sources"      onClick={closeAll}>Cheapest Protein Sources</Link>
-          <Link to="/best-foods-for-each-macro"     onClick={closeAll}>Best Foods by Macro</Link>
-
-          <div className="navbar__mobile-divider" />
-
-          <Link to="/calculators" onClick={closeAll} className="navbar__mobile-highlight">Calculators</Link>
-          <Link to="/programs"    onClick={closeAll}>Store</Link>
-
-          <div className="navbar__mobile-divider" />
-
-          <Link to="/about"   onClick={closeAll}>About</Link>
-          <Link to="/contact" onClick={closeAll}>Contact</Link>
+          <Link to="/about"   className="navbar__mobile-plain" onClick={closeAll}>About</Link>
+          <Link to="/contact" className="navbar__mobile-plain" onClick={closeAll}>Contact</Link>
 
           <div className="navbar__mobile-divider" />
 
