@@ -9,7 +9,6 @@ import './ArticlePage.css';
 // ── Reading progress bar ──────────────────────────────────────
 function ReadingProgress() {
   const [progress, setProgress] = useState(0);
-
   useEffect(() => {
     const update = () => {
       const scrollTop = window.scrollY;
@@ -20,7 +19,6 @@ function ReadingProgress() {
     window.addEventListener('scroll', update, { passive: true });
     return () => window.removeEventListener('scroll', update);
   }, []);
-
   return (
     <div className="reading-progress">
       <div className="reading-progress__bar" style={{ width: `${progress}%` }} />
@@ -31,64 +29,31 @@ function ReadingProgress() {
 // ── Share buttons ─────────────────────────────────────────────
 function ShareButtons({ title, url }) {
   const [copied, setCopied] = useState(false);
-
   const encodedUrl   = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
-
   const shareX        = () => window.open(`https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`, '_blank');
   const shareWhatsApp = () => window.open(`https://wa.me/?text=${encodedTitle}%20${encodedUrl}`, '_blank');
-
   const copyLink = async () => {
-    try {
-      await navigator.clipboard.writeText(url);
-    } catch {
+    try { await navigator.clipboard.writeText(url); } catch {
       const el = document.createElement('input');
-      el.value = url;
-      document.body.appendChild(el);
-      el.select();
-      document.execCommand('copy');
-      document.body.removeChild(el);
+      el.value = url; document.body.appendChild(el); el.select();
+      document.execCommand('copy'); document.body.removeChild(el);
     }
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+    setCopied(true); setTimeout(() => setCopied(false), 2000);
   };
-
   return (
     <div className="share-bar">
       <span className="share-bar__label">Share</span>
       <button className="share-btn share-btn--x" onClick={shareX} aria-label="Share on X">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-        </svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         <span>Post</span>
       </button>
       <button className="share-btn share-btn--whatsapp" onClick={shareWhatsApp} aria-label="Share on WhatsApp">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         <span>WhatsApp</span>
       </button>
-      <button
-        className={`share-btn share-btn--copy ${copied ? 'copied' : ''}`}
-        onClick={copyLink}
-        aria-label="Copy link"
-      >
-        {copied ? (
-          <>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-              <polyline points="20 6 9 17 4 12"/>
-            </svg>
-            <span>Copied!</span>
-          </>
-        ) : (
-          <>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/>
-              <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/>
-            </svg>
-            <span>Copy link</span>
-          </>
-        )}
+      <button className={`share-btn share-btn--copy ${copied ? 'copied' : ''}`} onClick={copyLink} aria-label="Copy link">
+        {copied ? (<><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><polyline points="20 6 9 17 4 12"/></svg><span>Copied!</span></>) : (<><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg><span>Copy link</span></>)}
       </button>
     </div>
   );
@@ -97,130 +62,115 @@ function ShareButtons({ title, url }) {
 // ── Main page ─────────────────────────────────────────────────
 export default function ArticlePage() {
   const { slug } = useParams();
-
   const { data, loading, error } = useFetch(() => api.articles.bySlug(slug), [slug]);
   const { data: related }        = useFetch(() => api.articles.related(slug), [slug]);
 
-  // Derive values safely — undefined while loading
-  const article     = data?.article ?? null;
-  const title       = article?.title       ?? '';
-  const description = article?.description ?? '';
-  const pageUrl     = article ? `https://liftandburn.fit/articles/${article.slug}` : '';
-
+  const article      = data?.article ?? null;
+  const title        = article?.title       ?? '';
+  const description  = article?.description ?? '';
+  const pageUrl      = article
+    ? `https://liftandburn.fit/articles/${article.slug}`
+    : `https://liftandburn.fit/articles/${slug}`;
+  const publishedIso = article?.publishedAt
+    ? new Date(article.publishedAt).toISOString()
+    : '';
   const date = article?.publishedAt
-    ? new Date(article.publishedAt).toLocaleDateString('en-GB', {
-        day: 'numeric', month: 'long', year: 'numeric',
-      })
+    ? new Date(article.publishedAt).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })
     : null;
+
+  const jsonLd = article ? JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    url: pageUrl,
+    datePublished: publishedIso,
+    dateModified:  publishedIso,
+    author: { '@type': 'Organization', name: 'LiftAndBurn', url: 'https://liftandburn.fit' },
+    publisher: { '@type': 'Organization', name: 'LiftAndBurn', url: 'https://liftandburn.fit' },
+  }) : null;
 
   return (
     <>
-      {/*
-       * Helmet is ALWAYS mounted at the top level — never inside an early return.
-       * On first render it writes a fallback title; once `article` resolves it
-       * re-fires and react-helmet-async updates <title> correctly.
-       */}
       <Helmet>
-        <link rel="canonical" href={pageUrl || `https://liftandburn.fit/articles/${slug}`} />
         <title>{title ? `${title} — LiftAndBurn` : 'LiftAndBurn'}</title>
+        <link rel="canonical" href={pageUrl} />
         <meta name="description"        content={description} />
+
+        {/* Open Graph */}
+        <meta property="og:type"        content="article" />
         <meta property="og:title"       content={title ? `${title} — LiftAndBurn` : 'LiftAndBurn'} />
         <meta property="og:description" content={description} />
         <meta property="og:url"         content={pageUrl} />
-        <meta property="og:type"        content="article" />
+        <meta property="og:site_name"   content="LiftAndBurn" />
+
+        {/* Article dates — fixes the Ahrefs "Missing" flag */}
+        {publishedIso && <meta property="article:published_time" content={publishedIso} />}
+        {publishedIso && <meta property="article:modified_time"  content={publishedIso} />}
+        <meta property="article:author"  content="LiftAndBurn" />
+        <meta property="article:section" content={article?.category ?? ''} />
+
+        {/* Twitter */}
         <meta name="twitter:card"        content="summary" />
         <meta name="twitter:title"       content={title} />
         <meta name="twitter:description" content={description} />
+
+        {/* JSON-LD — what Google and Ahrefs actually read for structured dates */}
+        {jsonLd && <script type="application/ld+json">{jsonLd}</script>}
       </Helmet>
 
-      {/* Reading progress bar — always visible */}
       <ReadingProgress />
 
-      {/* ── Loading state ────────────────────────────────────── */}
-      {loading && (
-        <div className="article-loading container">Loading article…</div>
-      )}
+      {loading && <div className="article-loading container">Loading article…</div>}
+      {error   && <div className="article-error container">Article not found.</div>}
 
-      {/* ── Error state ──────────────────────────────────────── */}
-      {error && (
-        <div className="article-error container">Article not found.</div>
-      )}
-
-      {/* ── Full article (rendered only when data is ready) ──── */}
       {article && (
         <div className="article-page container">
-
-          {/* ── Header ───────────────────────────────────────── */}
           <header className="article-header fade-up">
             <div className="article-header__meta">
-              <Link to={`/category/${article.category}`} className="tag accent">
-                {article.category}
-              </Link>
-              {article.readingTime && (
-                <span className="article-header__read-badge">
-                  📖 {article.readingTime} min read
-                </span>
-              )}
+              <Link to={`/category/${article.category}`} className="tag accent">{article.category}</Link>
+              {article.readingTime && <span className="article-header__read-badge">📖 {article.readingTime} min read</span>}
               {date && <span className="article-header__date">{date}</span>}
             </div>
             <h1 className="article-header__title">{article.title}</h1>
-            {article.description && (
-              <p className="article-header__desc">{article.description}</p>
-            )}
+            {article.description && <p className="article-header__desc">{article.description}</p>}
             <ShareButtons title={article.title} url={pageUrl} />
             {article.tags?.length > 0 && (
               <div className="article-header__tags">
-                {article.tags.map((t) => (
-                  <span key={t} className="tag">{t}</span>
-                ))}
+                {article.tags.map((t) => <span key={t} className="tag">{t}</span>)}
               </div>
             )}
           </header>
 
-          {/* ── AdSense top ──────────────────────────────────── */}
           <div className="adsense-slot">AdSense · 728×90</div>
 
-          {/* ── Body + Sidebar ───────────────────────────────── */}
           <div className="article-layout">
-            <article
-              className="article-body fade-up-2"
-              dangerouslySetInnerHTML={{ __html: article.html }}
-            />
-
+            <article className="article-body fade-up-2" dangerouslySetInnerHTML={{ __html: article.html }} />
             <aside className="article-sidebar">
               <div className="sidebar-card">
                 <span className="sidebar-card__title">About</span>
-                <p className="sidebar-card__text">
-                  LiftAndBurn covers hybrid athlete training — combining heavy lifting
-                  with steady-state cardio for strength, endurance, and body recomposition.
-                </p>
+                <p className="sidebar-card__text">LiftAndBurn covers hybrid athlete training — combining heavy lifting with steady-state cardio for strength, endurance, and body recomposition.</p>
                 <Link to="/articles" className="sidebar-card__link">Browse all articles →</Link>
               </div>
               <div className="adsense-slot" style={{ minHeight: 250 }}>AdSense · 300×250</div>
             </aside>
           </div>
 
-          {/* ── Bottom share bar ─────────────────────────────── */}
           <div className="share-bar-bottom">
             <span>Found this useful?</span>
             <ShareButtons title={article.title} url={pageUrl} />
           </div>
 
-          {/* ── AdSense bottom ───────────────────────────────── */}
           <div className="adsense-slot">AdSense · 728×90</div>
 
-          {/* ── Related articles ─────────────────────────────── */}
           {related?.articles?.length > 0 && (
             <section className="related">
               <h2 className="related__title">RELATED ARTICLES</h2>
               <div className="article-list">
-                {related.articles.map((a) => (
-                  <ArticleCard key={a.slug} article={a} />
-                ))}
+                {related.articles.map((a) => <ArticleCard key={a.slug} article={a} />)}
               </div>
             </section>
           )}
-
         </div>
       )}
     </>
