@@ -276,7 +276,7 @@ export default function StepsCalculator() {
             <div className="calc-related">
               <h3>Related Articles</h3>
               <Link to="/articles/how-to-get-10000-steps-a-day">How to Get 10,000 Steps a Day</Link>
-              <Link to="/articles/12-3-30-workout-does-it-work">The 12-3-30 Workout</Link>
+              <Link to="/articles/is-walking-enough-exercise">Is Walking Enough Exercise?</Link>
               <Link to="/articles/treadmill-incline-walking-burn-calories">The Best Way to Use a Treadmill</Link>
               <Link to="/articles/how-to-make-cardio-not-boring">How to Make Cardio Not Boring</Link>
             </div>
