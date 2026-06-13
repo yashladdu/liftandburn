@@ -18,6 +18,10 @@ import LeanBodyMassCalculator from './pages/calculators/LeanBodyMassCalculator';
 import WilksDotsCalculator from './pages/calculators/WilksDotsCalculator';
 import PlateLoadingCalculator from './pages/calculators/PlateLoadingCalculator';
 import StrengthStandardsCalculator from './pages/calculators/StrengthStandardsCalculator';
+import PaceCalculator from './pages/calculators/PaceCalculator';
+import ProteinIntakeCalculator from './pages/calculators/ProteinIntakeCalculator';
+import HeartRateZonesCalculator from './pages/calculators/HeartRateZonesCalculator';
+import RestingHeartRateCalculator from './pages/calculators/RestingHeartRateCalculator';
 import HighProteinFoodsPage from './pages/HighProteinFoodsPage';
 import HighFibreFoodsPage from './pages/HighFibreFoodsPage';
 import LowCalorieFoodsPage from './pages/LowCalorieFoodsPage';
@@ -59,6 +63,10 @@ export default function App() {
             <Route path="/calculators/wilks-dots"           element={<WilksDotsCalculator />} />
             <Route path="/calculators/plate-loading"        element={<PlateLoadingCalculator />} />
             <Route path="/calculators/strength-standards"   element={<StrengthStandardsCalculator />} />
+            <Route path="/calculators/pace"                  element={<PaceCalculator />} />
+            <Route path="/calculators/protein-intake"        element={<ProteinIntakeCalculator />} />
+            <Route path="/calculators/heart-rate-zones"      element={<HeartRateZonesCalculator />} />
+            <Route path="/calculators/resting-heart-rate"    element={<RestingHeartRateCalculator />} />
             <Route path="/high-protein-foods"      element={<HighProteinFoodsPage />} />
             <Route path="/high-fibre-foods"        element={<HighFibreFoodsPage />} />
             <Route path="/low-calorie-high-volume-foods" element={<LowCalorieFoodsPage />} />

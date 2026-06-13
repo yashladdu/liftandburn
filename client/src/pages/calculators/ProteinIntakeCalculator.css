@@ -1,0 +1,11 @@
+.pi-goal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.pi-goal{display:flex;flex-direction:column;gap:2px;padding:10px 12px;background:var(--bg-raised);border:1px solid var(--border);border-radius:var(--radius-sm);cursor:pointer;text-align:left;font-family:var(--font-body);transition:all .15s;}
+.pi-goal:hover{border-color:var(--accent);}
+.pi-goal.active{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 10%,var(--bg-raised));}
+.pi-goal__label{font-size:12px;font-weight:600;color:var(--text);}
+.pi-goal__desc{font-size:10px;color:var(--text-faint);}
+.pi-results{text-align:center;animation:fadeInUp .3s ease;}
+.pi-primary__val{font-family:var(--font-display);font-size:64px;color:var(--accent);display:block;line-height:1;}
+.pi-primary__unit{font-size:13px;color:var(--text-muted);}
+.pi-range{font-size:13px;color:var(--text-faint);margin-top:4px;}
+@media(max-width:560px){.pi-goal-grid{grid-template-columns:1fr 1fr;}}

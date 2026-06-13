@@ -6,13 +6,16 @@ const SECTIONS = [
   {
     title: 'Calorie & Energy',
     calcs: [
+      { icon: '🏃', title: 'Treadmill Calorie Calculator', desc: 'Calculate calories burned on a treadmill at any speed and incline using ACSM equations.', to: '/calculators/treadmill-calorie-calculator' },
+      { icon: '👟', title: 'Steps to Calories',            desc: 'How many calories does walking 10,000 steps burn? Enter your steps, weight and pace.', to: '/calculators/steps' },
       { icon: '🍽️', title: 'TDEE Calculator',             desc: 'Calculate your Total Daily Energy Expenditure using Mifflin-St Jeor, Katch-McArdle and more. Includes macro breakdown.', to: '/calculators/tdee' },
       { icon: '🥩', title: 'Macro Calculator',             desc: 'Convert grams of protein, carbs, and fat to total calories — or enter a calorie target and get your macro split in grams.', to: '/calculators/macros' },
+      { icon: '🍗', title: 'Protein Intake',               desc: 'How much protein you need per day based on your bodyweight and goal — muscle gain, fat loss, or maintenance.', to: '/calculators/protein-intake' },
       { icon: '⏱️', title: 'Calorie Deficit',              desc: 'How long to reach your goal weight at a given daily deficit. Shows weeks, months, and target date.', to: '/calculators/calorie-deficit' },
       { icon: '💧', title: 'Water Intake',                 desc: 'Daily hydration target based on bodyweight, activity level, and climate.', to: '/calculators/water-intake' },
       { icon: '🔥', title: 'Calories Burned',              desc: 'Calories burned across 18 activities including treadmill, cycling, rowing, and lifting.', to: '/calculators/calories' },
-      { icon: '🏃', title: 'Treadmill Calorie Calculator', desc: 'Calculate calories burned on a treadmill at any speed and incline using ACSM equations.', to: '/calculators/treadmill-calorie-calculator' },
-      { icon: '👟', title: 'Steps to Calories',            desc: 'How many calories does walking 10,000 steps burn? Enter your steps, weight and pace.', to: '/calculators/steps' },
+      
+      
     ],
   },
   {
@@ -23,6 +26,9 @@ const SECTIONS = [
       { icon: '⚖️', title: 'BMI Calculator',      desc: 'Calculate your Body Mass Index with a visual gauge, healthy weight range, and an honest explanation of why BMI is misleading for muscular people.', to: '/calculators/bmi' },
       { icon: '💪', title: 'Lean Body Mass',      desc: 'Calculate your lean mass and fat mass using Boer, James, and Hume formulas — or enter your body fat %.', to: '/calculators/lean-body-mass' },
       { icon: '💓', title: 'Zone 2 Heart Rate',   desc: 'Find your optimal fat-burning cardio heart rate zone based on your age.', to: '/calculators/zone2' },
+      { icon: '❤️', title: 'Heart Rate Zones',    desc: 'All 5 training zones — recovery to max effort — based on the Tanaka formula and your age.', to: '/calculators/heart-rate-zones' },
+      { icon: '🫀', title: 'Resting Heart Rate',  desc: 'What your resting heart rate means for your fitness — compare against age-based reference ranges.', to: '/calculators/resting-heart-rate' },
+      { icon: '🏃', title: 'Pace Calculator',     desc: 'Calculate running/walking pace, predict race finish times, or find distance from pace and time.', to: '/calculators/pace' },
     ],
   },
   {
