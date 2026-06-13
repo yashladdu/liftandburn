@@ -305,7 +305,7 @@
 .calc-related a:hover { color: var(--accent); }
 
 /* ── Hub page ──────────────────────────────────────────────── */
-.calc-hub { padding: 40px 0 80px; }
+.calc-hub { padding: 40px 10px 80px; }
 
 .calc-hub-header { margin-bottom: 32px; }
 .calc-hub-eyebrow {
