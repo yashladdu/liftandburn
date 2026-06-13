@@ -1,5 +1,5 @@
 /* ── Page shell ────────────────────────────────────────────── */
-.calc-page { padding: 32px 10px 40px 10px; }
+.calc-page { padding: 32px 0 80px; }
 
 .calc-breadcrumb {
   font-size: 12px;
@@ -305,7 +305,7 @@
 .calc-related a:hover { color: var(--accent); }
 
 /* ── Hub page ──────────────────────────────────────────────── */
-.calc-hub { padding: 40px 10px 80px 10px; }
+.calc-hub { padding: 40px 0 80px; }
 
 .calc-hub-header { margin-bottom: 32px; }
 .calc-hub-eyebrow {
@@ -324,7 +324,7 @@
   color: var(--text);
   margin-bottom: 10px;
 }
-.calc-hub-sub { font-size: 14px; color: var(--text-muted); max-width: 500px; }
+.calc-hub-sub { font-size: 14px; color: var(--text-muted); max-width: 640px; line-height: 1.6; }
 
 .calc-hub-section { margin-bottom: 40px; }
 .calc-hub-section-title {
@@ -332,15 +332,27 @@
   font-size: 20px;
   letter-spacing: 1px;
   color: var(--text);
-  margin-bottom: 14px;
+  margin-bottom: 8px;
   padding-bottom: 10px;
   border-bottom: 1px solid var(--border);
+}
+.calc-hub-section-intro {
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 640px;
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
 
 .calc-hub-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 14px;
+}
+
+/* 4-column grid for the hub — collapses responsively */
+.calc-hub-grid--4col {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .calc-hub-card {
@@ -363,6 +375,59 @@
 }
 .calc-hub-card__desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; flex: 1; }
 .calc-hub-card__link { font-size: 12px; color: var(--accent); font-weight: 500; margin-top: 4px; }
+
+/* Compact card variant for the 4-col hub grid */
+.calc-hub-card--compact {
+  padding: 16px;
+  gap: 6px;
+}
+.calc-hub-card--compact .calc-hub-card__icon { font-size: 22px; }
+.calc-hub-card--compact .calc-hub-card__title { font-size: 13px; }
+.calc-hub-card--compact .calc-hub-card__desc {
+  font-size: 11.5px;
+  line-height: 1.45;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── FAQ section ───────────────────────────────────────────── */
+.calc-hub-faq { margin-top: 48px; }
+.calc-hub-faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+.calc-hub-faq__item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+}
+.calc-hub-faq__q {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+.calc-hub-faq__a {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── Responsive grid collapse ─────────────────────────────────── */
+@media (max-width: 1100px) {
+  .calc-hub-grid--4col { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 760px) {
+  .calc-hub-grid--4col { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .calc-hub-grid--4col { grid-template-columns: 1fr; }
+}
 
 /* ── Responsive ────────────────────────────────────────────── */
 @media (max-width: 860px) {
