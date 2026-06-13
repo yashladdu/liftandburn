@@ -4,8 +4,6 @@ import { Helmet } from 'react-helmet-async';
 import './CalcPage.css';
 
 // ACSM metabolic equations (gold standard)
-// Walk VO2 (ml/kg/min) = 0.1×speed + 1.8×speed×grade + 3.5   (speed in m/min)
-// Run  VO2 (ml/kg/min) = 0.2×speed + 0.9×speed×grade + 3.5   (speed in m/min)
 const calcVO2 = (mode, speedMmin, gradeDecimal) => {
   if (mode === 'Walk') {
     return 0.1 * speedMmin + 1.8 * speedMmin * gradeDecimal + 3.5;
@@ -16,7 +14,7 @@ const calcVO2 = (mode, speedMmin, gradeDecimal) => {
 const toMmin = (speed, unit) => {
   if (unit === 'mph')   return speed * 26.8224;
   if (unit === 'km/hr') return speed * 16.6667;
-  return speed; // already m/min
+  return speed;
 };
 
 const SPEED_UNITS = ['mph', 'km/hr', 'm/min'];
@@ -61,12 +59,12 @@ export default function WalkRunCalculator() {
     const durationMins = toMinutes(d, durationUnit);
     const gradeDecimal = g / 100;
 
-    let vo2 = calcVO2(mode, speedMmin, gradeDecimal); // ml/kg/min (Gross)
-    if (energy === 'Net') vo2 = vo2 - 3.5;            // subtract resting VO2
+    let vo2 = calcVO2(mode, speedMmin, gradeDecimal);
+    if (energy === 'Net') vo2 = vo2 - 3.5;
 
     const mets     = vo2 / 3.5;
-    const calories = (mets * weightKg * (durationMins / 60)); // kcal
-    const vo2Abs   = (vo2 * weightKg) / 1000;                 // L/min
+    const calories = (mets * weightKg * (durationMins / 60));
+    const vo2Abs   = (vo2 * weightKg) / 1000;
 
     setResult({
       mets:      Math.round(mets * 10) / 10,
@@ -85,9 +83,9 @@ export default function WalkRunCalculator() {
   return (
     <>
       <Helmet>
-        <title>Treadmill Calorie Calculator — LiftAndBurn</title>
+        <title>Treadmill Calorie Calculator — Walk & Run (ACSM Formula) | LiftAndBurn</title>
         <link rel="canonical" href="https://liftandburn.fit/calculators/treadmill-calorie-calculator" />
-        <meta name="description" content="Calculate METs, VO2, and calories burned walking or running using ACSM metabolic equations. Enter speed, grade, body weight and duration." />
+        <meta name="description" content="Calculate calories, METs, and VO2 burned walking or running on a treadmill at any speed and incline using the ACSM metabolic equations — more accurate than your treadmill display." />
       </Helmet>
 
       <div className="calc-page container">
@@ -100,7 +98,6 @@ export default function WalkRunCalculator() {
         <div className="calc-layout">
           <div className="calc-main">
 
-            {/* ── Inputs ──────────────────────────────────── */}
             <div className="calc-box">
               <div className="calc-grid">
 
@@ -167,7 +164,6 @@ export default function WalkRunCalculator() {
               </div>
             </div>
 
-            {/* ── Results ─────────────────────────────────── */}
             {result && (
               <div className="calc-results fade-up">
                 <div className="calc-result-grid">
@@ -187,43 +183,64 @@ export default function WalkRunCalculator() {
               </div>
             )}
 
-            {/* ── Instructions ────────────────────────────── */}
+            {/* ── Instructions / SEO content ────────────────── */}
             <div className="calc-instructions">
-              <h2>Instructions</h2>
-              <p>Select mode (Walk or Run) and energy type (Gross includes resting metabolism; Net excludes it). Enter speed, body weight, treadmill grade, and duration, then click Calculate.</p>
-              <p><strong>Accurate requirements:</strong></p>
+              <h2>How to use this calculator</h2>
+              <p>Select Walk or Run mode and choose Gross (includes resting metabolism) or Net (exercise only) energy. Enter your speed, body weight, treadmill incline (grade), and duration, then click Calculate. The result shows METs, VO2, and total calories burned for that session.</p>
+
+              <h2>Why your treadmill's calorie display is wrong</h2>
+              <p>Most treadmill displays are calibrated for a default bodyweight of around 70kg and barely account for incline. If you weigh more or less than that — or you're walking at any meaningful incline — the number on the screen can be off by 20–40% or more. This calculator uses the <strong>ACSM (American College of Sports Medicine) metabolic equations</strong>, the gold standard used in exercise science research, and accounts for your actual weight, speed, and grade.</p>
+
+              <h2>Why incline matters so much</h2>
+              <p>Every percentage point of incline significantly increases calorie burn at the same speed — walking at 12% incline burns roughly twice as many calories as walking flat at the same pace. This is the entire premise behind the popular <Link to="/articles/12-3-30-workout-does-it-work">12-3-30 workout</Link> (12% incline, 3mph, 30 minutes), which produces a calorie burn comparable to jogging with a fraction of the joint impact.</p>
+
+              <h2>Gross vs Net calories — which should I use?</h2>
+              <p><strong>Gross calories</strong> include the calories you'd burn anyway just by being alive (your resting metabolic rate) during that time. <strong>Net calories</strong> subtract that baseline, showing only the calories burned specifically because of the exercise. For tracking total daily energy expenditure or fitting exercise into a calorie budget, Gross is usually the more useful number — it reflects what actually leaves your "calorie bank" for the day.</p>
+
+              <h2>For accurate results, this calculator assumes:</h2>
               <ul>
-                <li>Steady-state submaximal aerobic exercise</li>
-                <li>Walking speeds between 50–100 m/min (1.9–3.7 mph / 3–6 km/hr)</li>
-                <li>Running at least 80 m/min (3 mph / 4.8 km/hr)</li>
-                <li>Not holding onto the handrail</li>
-                <li>Exercise unaffected by wind, snow, sand, or gait abnormalities</li>
+                <li>Steady-state submaximal aerobic exercise (constant pace, no sprinting)</li>
+                <li>Walking speeds between 1.9–3.7 mph (3–6 km/hr) for the walking equation</li>
+                <li>Running at least 3 mph (4.8 km/hr) for the running equation</li>
+                <li>Not holding onto the handrails — this can reduce calorie burn by 20–30%</li>
+                <li>No wind, sand, snow, or gait abnormalities affecting efficiency</li>
               </ul>
-              <p className="calc-note">Calculations use ACSM metabolic equations. Results may differ slightly from textbook examples as no intermediate rounding is applied.</p>
+              <p className="calc-note">Calculations use the ACSM metabolic equations exactly as published. Results may differ slightly from textbook examples since no intermediate rounding is applied.</p>
+
               <div className="calc-links">
-                <Link to="/calculators/steps">Step Metabolic Calculator</Link>
+                <Link to="/calculators/steps">Steps to Calories Calculator</Link>
                 <span>|</span>
-                <Link to="/articles/zone-2-cardio-beginners-guide">Zone 2 Cardio Guide</Link>
+                <Link to="/calculators/pace">Pace Calculator</Link>
+                <span>|</span>
+                <Link to="/calculators/tdee">TDEE Calculator</Link>
+                <span>|</span>
+                <Link to="/articles/treadmill-incline-walking-burn-calories">The Best Way to Use a Treadmill</Link>
+                <span>|</span>
+                <Link to="/articles/12-3-30-workout-does-it-work">The 12-3-30 Workout</Link>
+                <span>|</span>
+                <Link to="/articles/how-to-get-10000-steps-a-day">How to Get 10,000 Steps a Day</Link>
                 <span>|</span>
                 <Link to="/calculators">All Calculators</Link>
               </div>
             </div>
           </div>
 
-          {/* ── Sidebar ─────────────────────────────────── */}
           <aside className="calc-sidebar">
             <div className="adsense-slot" style={{ minHeight: 250 }}>AdSense · 300×250</div>
             <div className="calc-related">
               <h3>Related Calculators</h3>
-              <Link to="/calculators/steps">Step Metabolic Calculator</Link>
+              <Link to="/calculators/steps">Steps to Calories</Link>
+              <Link to="/calculators/pace">Pace Calculator</Link>
               <Link to="/calculators/zone2">Zone 2 Heart Rate</Link>
-              <Link to="/calculators/one-rep-max">One Rep Max</Link>
-              <Link to="/calculators/calories">Calories Burned</Link>
+              <Link to="/calculators/heart-rate-zones">Heart Rate Zones</Link>
+              <Link to="/calculators/tdee">TDEE Calculator</Link>
             </div>
             <div className="calc-related">
               <h3>Related Articles</h3>
-              <Link to="/articles/zone-2-cardio-beginners-guide">Zone 2 Cardio: The Complete Guide</Link>
-              <Link to="/articles/how-to-combine-weightlifting-and-cardio">Combining Lifting & Cardio</Link>
+              <Link to="/articles/treadmill-incline-walking-burn-calories">The Best Way to Use a Treadmill</Link>
+              <Link to="/articles/12-3-30-workout-does-it-work">The 12-3-30 Workout</Link>
+              <Link to="/articles/how-to-get-10000-steps-a-day">How to Get 10,000 Steps a Day</Link>
+              <Link to="/articles/how-to-make-cardio-not-boring">How to Make Cardio Not Boring</Link>
             </div>
           </aside>
         </div>

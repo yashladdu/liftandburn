@@ -3,14 +3,6 @@ import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import './CalcPage.css';
 
-// Calories from steps using MET-based approach
-// Average step = ~0.75m for walking, speed ~5 km/h, MET ~3.5
-// Calories = MET × weight(kg) × duration(hours)
-// Duration estimated from steps: steps / cadence (steps/min) / 60
-// Average walking cadence: ~100 steps/min
-// More accurate: calories per step = MET × weight × (1/cadence) / 60
-// We use pace-adjusted MET values
-
 const PACE_OPTIONS = [
   { label: 'Slow (< 80 steps/min)',     cadence: 70,  met: 2.5,  speed: '~3 km/h'  },
   { label: 'Normal (80–100 steps/min)', cadence: 90,  met: 3.5,  speed: '~5 km/h'  },
@@ -21,8 +13,6 @@ const PACE_OPTIONS = [
 const WEIGHT_UNITS = ['kg', 'lbs'];
 const toKg = (w, u) => u === 'lbs' ? w * 0.453592 : w;
 
-// Distance estimation: stride length ≈ 0.413 × height(m)
-// If no height, use average stride of 0.762m (avg adult)
 const stepsToDistance = (steps, heightCm) => {
   const h = heightCm ? heightCm / 100 : 1.75;
   const stride = 0.413 * h;
@@ -35,7 +25,7 @@ export default function StepsCalculator() {
   const [steps,      setSteps]      = useState('');
   const [weight,     setWeight]     = useState('');
   const [weightUnit, setWeightUnit] = useState('kg');
-  const [paceIdx,    setPaceIdx]    = useState(1); // Normal by default
+  const [paceIdx,    setPaceIdx]    = useState(1);
   const [heightCm,   setHeightCm]   = useState('');
   const [result,     setResult]     = useState(null);
   const [error,      setError]      = useState('');
@@ -57,11 +47,8 @@ export default function StepsCalculator() {
     const durationMin = Math.round(durationH * 60);
     const fatGrams  = Math.round((calories / 7700) * 1000) / 10;
 
-    // How far from common goals
     const nextGoal = STEP_GOALS.find(g => g > s);
     const stepsToGoal = nextGoal ? nextGoal - s : null;
-
-    // Calories per 1000 steps
     const cPer1k = Math.round(pace.met * weightKg * (1000 / pace.cadence / 60));
 
     setResult({
@@ -80,9 +67,9 @@ export default function StepsCalculator() {
   return (
     <>
       <Helmet>
-        <title>Steps to Calories Calculator — How Many Calories Do Steps Burn? | LiftAndBurn</title>
+        <title>Steps to Calories Calculator — How Many Calories Do 10,000 Steps Burn? | LiftAndBurn</title>
         <link rel="canonical" href="https://liftandburn.fit/calculators/steps" />
-        <meta name="description" content="Calculate how many calories you burn walking based on your step count, body weight, and pace. Includes distance, duration, and fat burned." />
+        <meta name="description" content="Calculate how many calories you burn walking based on your step count, body weight, and pace. Includes distance walked, time taken, and fat burned." />
       </Helmet>
 
       <div className="calc-page container">
@@ -136,9 +123,8 @@ export default function StepsCalculator() {
 
               </div>
 
-              {/* Pace selector */}
               <div style={{ marginBottom: 20 }}>
-                <label className="tdee-section-label" style={{ display: 'block', fontSize: 11, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--text-faint)', fontWeight: 500, marginBottom: 10 }}>Walking Pace</label>
+                <label style={{ display: 'block', fontSize: 11, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--text-faint)', fontWeight: 500, marginBottom: 10 }}>Walking Pace</label>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: 8 }}>
                   {PACE_OPTIONS.map((p, i) => (
                     <button
@@ -160,7 +146,6 @@ export default function StepsCalculator() {
                 </div>
               </div>
 
-              {/* Quick step goal buttons */}
               <div style={{ marginBottom: 20 }}>
                 <label style={{ display: 'block', fontSize: 11, letterSpacing: 1.5, textTransform: 'uppercase', color: 'var(--text-faint)', fontWeight: 500, marginBottom: 10 }}>Quick select</label>
                 <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
@@ -191,7 +176,6 @@ export default function StepsCalculator() {
               </div>
             </div>
 
-            {/* ── Results ─────────────────────────────────── */}
             {result && (
               <div className="calc-results fade-up">
                 <div className="calc-result-grid">
@@ -224,7 +208,6 @@ export default function StepsCalculator() {
                   </div>
                 </div>
 
-                {/* Next goal nudge */}
                 {result.nextGoal && (
                   <div style={{
                     marginTop: 14, padding: '12px 16px', borderRadius: 'var(--radius-md)',
@@ -242,26 +225,37 @@ export default function StepsCalculator() {
               </div>
             )}
 
-            {/* ── Instructions ────────────────────────────── */}
+            {/* ── Instructions / SEO content ────────────────── */}
             <div className="calc-instructions">
               <h2>How steps to calories is calculated</h2>
-              <p>This calculator uses MET (Metabolic Equivalent of Task) values adjusted for walking pace. The formula is: <strong>Calories = MET × weight (kg) × duration (hours)</strong>. Duration is estimated from your step count and typical cadence for the selected pace.</p>
+              <p>This calculator uses MET (Metabolic Equivalent of Task) values adjusted for walking pace. The formula is: <strong>Calories = MET × weight (kg) × duration (hours)</strong>. Duration is estimated from your step count and the typical cadence for your selected pace.</p>
 
-              <h2>Why body weight matters</h2>
-              <p>Heavier people burn more calories for the same number of steps because they are moving more mass over the same distance. A 100kg person burns roughly 40% more calories per step than a 70kg person at the same pace.</p>
+              <h2>How many calories does 10,000 steps burn?</h2>
+              <p>For a 75kg person walking at a normal pace, 10,000 steps burns approximately <strong>300–400 calories</strong>. Done daily, that's 2,100–2,800 calories per week — roughly equivalent to 0.25–0.35kg of fat loss per week from walking alone, with no other changes. For more strategies to increase your daily total, see <Link to="/articles/how-to-get-10000-steps-a-day">15 ways to get 10,000 steps a day</Link>.</p>
 
-              <h2>Does 10,000 steps a day make a difference?</h2>
-              <p>For a 75kg person walking at a normal pace, 10,000 steps burns approximately 300–400 calories. Done daily, that is 2,100–2,800 calories per week — roughly equivalent to losing 0.25–0.35kg of fat per week from walking alone, without any dietary changes.</p>
-              <p>Combined with a modest calorie reduction, daily step targets are one of the most sustainable fat loss tools available — because walking requires no recovery time and can be done every day indefinitely.</p>
+              <h2>Why body weight matters so much</h2>
+              <p>Heavier people burn more calories for the same number of steps because they're moving more mass over the same distance. A 100kg person burns roughly 40% more calories per step than a 70kg person walking at the same pace.</p>
+
+              <h2>Steps vs incline — which matters more?</h2>
+              <p>Step count is only part of the story. Walking the same number of steps at an incline burns significantly more — at 12% grade, calorie burn roughly doubles compared to flat walking at the same pace. If you have access to a treadmill, the <Link to="/calculators/treadmill-calorie-calculator">treadmill calorie calculator</Link> accounts for incline directly — see also <Link to="/articles/12-3-30-workout-does-it-work">the 12-3-30 workout</Link> for a structured incline walking routine.</p>
+
+              <h2>Does 10,000 steps a day actually make a difference?</h2>
+              <p>Combined with a modest calorie deficit, daily step targets are one of the most sustainable fat loss tools available — walking requires no recovery time and can be done every single day indefinitely, unlike high-intensity training. See <Link to="/articles/how-to-make-cardio-not-boring">how to make cardio not boring</Link> for ways to make daily walking something you actually look forward to.</p>
 
               <p className="calc-note">Calorie estimates are approximate. Individual metabolism, terrain, gradient, and walking efficiency all affect actual calorie burn.</p>
 
               <div className="calc-links">
-                <Link to="/calculators/treadmill-calorie-calculator">Walk / Run Metabolic Calculator</Link>
+                <Link to="/calculators/treadmill-calorie-calculator">Treadmill Calorie Calculator</Link>
                 <span>|</span>
-                <Link to="/articles/treadmill-incline-walking-burn-calories">Treadmill Incline Walking Guide →</Link>
+                <Link to="/calculators/pace">Pace Calculator</Link>
                 <span>|</span>
-                <Link to="/articles/12-3-30-workout-does-it-work">12-3-30 Workout Guide →</Link>
+                <Link to="/calculators/tdee">TDEE Calculator</Link>
+                <span>|</span>
+                <Link to="/articles/how-to-get-10000-steps-a-day">How to Get 10,000 Steps a Day</Link>
+                <span>|</span>
+                <Link to="/articles/12-3-30-workout-does-it-work">The 12-3-30 Workout</Link>
+                <span>|</span>
+                <Link to="/articles/treadmill-incline-walking-burn-calories">The Best Way to Use a Treadmill</Link>
                 <span>|</span>
                 <Link to="/calculators">All Calculators</Link>
               </div>
@@ -269,21 +263,22 @@ export default function StepsCalculator() {
 
           </div>
 
-          {/* ── Sidebar ─────────────────────────────────── */}
           <aside className="calc-sidebar">
             <div className="adsense-slot" style={{ minHeight: 250 }}>AdSense · 300×250</div>
             <div className="calc-related">
               <h3>Related Calculators</h3>
-              <Link to="/calculators/treadmill-calorie-calculator">Walk / Run Metabolic</Link>
+              <Link to="/calculators/treadmill-calorie-calculator">Treadmill Calorie Calculator</Link>
+              <Link to="/calculators/pace">Pace Calculator</Link>
               <Link to="/calculators/calories">Calories Burned</Link>
               <Link to="/calculators/tdee">TDEE Calculator</Link>
               <Link to="/calculators/zone2">Zone 2 Heart Rate</Link>
             </div>
             <div className="calc-related">
               <h3>Related Articles</h3>
-              <Link to="/articles/treadmill-incline-walking-burn-calories">Treadmill Incline Walking</Link>
+              <Link to="/articles/how-to-get-10000-steps-a-day">How to Get 10,000 Steps a Day</Link>
               <Link to="/articles/12-3-30-workout-does-it-work">The 12-3-30 Workout</Link>
-              <Link to="/articles/why-the-scale-lies-measure-fat-loss">Tracking Fat Loss Progress</Link>
+              <Link to="/articles/treadmill-incline-walking-burn-calories">The Best Way to Use a Treadmill</Link>
+              <Link to="/articles/how-to-make-cardio-not-boring">How to Make Cardio Not Boring</Link>
             </div>
           </aside>
         </div>
