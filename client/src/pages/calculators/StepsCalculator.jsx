@@ -67,9 +67,9 @@ export default function StepsCalculator() {
   return (
     <>
       <Helmet>
-        <title>Steps to Calories Calculator — How Many Calories Do 10,000 Steps Burn? | LiftAndBurn</title>
-        <link rel="canonical" href="https://liftandburn.fit/calculators/steps" />
-        <meta name="description" content="Calculate how many calories you burn walking based on your step count, body weight, and pace. Includes distance walked, time taken, and fat burned." />
+        <title>Steps to Calories Calculator</title>
+         <link rel="canonical" href="https://liftandburn.fit/calculators/steps-to-calories" />
+        <meta name="description" content="Estimate how many calories you burn walking based on your step count, weight, height, and pace. Find out how many calories 10,000 steps actually burns." />
       </Helmet>
 
       <div className="calc-page container">
@@ -78,6 +78,12 @@ export default function StepsCalculator() {
         </div>
 
         <h1 className="calc-page__title">Steps to Calories Calculator</h1>
+
+        <p className="calc-page__intro">
+          This steps to calories calculator estimates the total calories burned while walking, based on your
+          step count, body weight, height, and pace. Curious how many calories 10,000 steps actually burns?
+          Enter your numbers below to find out.
+        </p>
 
         <div className="calc-layout">
           <div className="calc-main">
@@ -227,11 +233,25 @@ export default function StepsCalculator() {
 
             {/* ── Instructions / SEO content ────────────────── */}
             <div className="calc-instructions">
-              <h2>How steps to calories is calculated</h2>
-              <p>This calculator uses MET (Metabolic Equivalent of Task) values adjusted for walking pace. The formula is: <strong>Calories = MET × weight (kg) × duration (hours)</strong>. Duration is estimated from your step count and the typical cadence for your selected pace.</p>
 
               <h2>How many calories does 10,000 steps burn?</h2>
               <p>For a 75kg person walking at a normal pace, 10,000 steps burns approximately <strong>300–400 calories</strong>. Done daily, that's 2,100–2,800 calories per week — roughly equivalent to 0.25–0.35kg of fat loss per week from walking alone, with no other changes. For more strategies to increase your daily total, see <Link to="/articles/how-to-get-10000-steps-a-day">15 ways to get 10,000 steps a day</Link>.</p>
+
+              <h2>How steps to calories is calculated</h2>
+              <p>This calculator uses MET (Metabolic Equivalent of Task) values adjusted for walking pace. The formula is: <strong>Calories = MET × weight (kg) × duration (hours)</strong>. Duration is estimated from your step count and the typical cadence for your selected pace. Height is used to estimate your stride length and therefore the distance covered.</p>
+
+              <h2>Health benefits of walking</h2>
+              <p>Walking is one of the most accessible forms of exercise available — no equipment, no gym membership, and almost no learning curve. Beyond the calories burned, regular walking is linked to a wide range of health benefits:</p>
+              <ul>
+                <li>Improved cardiovascular and lung fitness, including lower resting heart rate and blood pressure over time</li>
+                <li>Reduced risk of chronic conditions including type 2 diabetes, heart disease, and certain cancers</li>
+                <li>Stronger bones through regular weight-bearing activity</li>
+                <li>Better balance and coordination, which becomes increasingly important with age</li>
+                <li>A meaningful contribution to fat loss when combined with a sensible calorie intake</li>
+                <li>Greater muscular endurance in the legs and core from sustained, repetitive movement</li>
+                <li>Improved mood, often attributed to a mix of light exposure, rhythmic movement, and reduced cortisol</li>
+              </ul>
+              <p>None of these benefits require intense walking — consistency matters far more than pace. A daily walk at a comfortable pace delivers most of these benefits over time.</p>
 
               <h2>Why body weight matters so much</h2>
               <p>Heavier people burn more calories for the same number of steps because they're moving more mass over the same distance. A 100kg person burns roughly 40% more calories per step than a 70kg person walking at the same pace.</p>

@@ -72,7 +72,7 @@ export default function App() {
             <Route path="/low-calorie-high-volume-foods" element={<LowCalorieFoodsPage />} />
             <Route path="/cheapest-protein-sources" element={<CheapestProteinPage />} />
             <Route path="/best-foods-for-each-macro" element={<BestFoodsForMacrosPage />} />
-            <Route path="/calculators/steps"       element={<StepsCalculator />} />
+            <Route path="/calculators/steps-to-calories"       element={<StepsCalculator />} />
             <Route path="/calculators/converters"  element={<ConvertersPage />} />
             <Route path="/calculators/zone2"       element={<Zone2CalculatorPage />} />
             <Route path="/calculators/one-rep-max" element={<OneRepMaxPage />} />

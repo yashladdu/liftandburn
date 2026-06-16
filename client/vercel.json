@@ -1,3 +1,6 @@
 {
+  "redirects": [
+    { "source": "/calculators/steps", "destination": "/calculators/steps-to-calories", "permanent": true }
+  ],
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
