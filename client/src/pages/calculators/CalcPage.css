@@ -17,6 +17,14 @@
   margin-bottom: 18px;
 }
 
+.calc-page__intro {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  max-width: 720px;
+  margin: -8px 0 28px;
+}
+
 /* ── Two-column layout ─────────────────────────────────────── */
 .calc-layout {
   display: grid;
