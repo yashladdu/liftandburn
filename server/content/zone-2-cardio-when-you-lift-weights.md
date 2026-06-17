@@ -9,23 +9,15 @@ publishedAt: 2026-05-15
 featured: false
 ---
 
-## The question every hybrid athlete asks
-
-You have heard that Zone 2 cardio is the gold standard for fat loss and cardiovascular health. You also know that too much cardio kills your gains. So where is the line?
-
-The answer is more specific than most fitness content suggests — and knowing it lets you programme cardio confidently without second-guessing every session.
+For most lifters, **90–150 minutes of Zone 2 per week**, split across 2–3 sessions, is the range that builds real aerobic fitness without competing with strength recovery. Below that and you miss meaningful adaptations; above roughly 180 minutes and you start risking interference with your lifting progress. The right number within that range depends on your goals and how your body responds — here's how to find it.
 
 ---
 
 ## A quick recap: what Zone 2 actually is
 
-Zone 2 is a heart rate range — approximately 60–70% of your maximum heart rate — where your body primarily burns fat for fuel and you can hold a full conversation without gasping.
+Zone 2 is a heart rate range — approximately 60–70% of your maximum heart rate — where your body primarily burns fat for fuel and you can hold a full conversation without gasping. For a full breakdown of what it is and why it works, see [Zone 2 cardio: why should you be doing it?](/articles/zone-2-cardio-beginners-guide) — this article assumes you already understand the basics and focuses specifically on how much to do alongside a lifting programme.
 
-For most people this feels deceptively easy. That is intentional. The adaptations from Zone 2 — improved mitochondrial density, better fat oxidation, stronger aerobic base — happen precisely because the intensity is low enough to sustain for long periods.
-
-A rough formula: Zone 2 = (220 minus your age) × 0.60 to 0.70.
-
-For a 30 year old: Zone 2 is approximately 114–133 bpm.
+You can find your personal Zone 2 range using the [heart rate zones calculator](/calculators/heart-rate-zones), which covers all five training zones based on the Tanaka formula.
 
 ---
 
@@ -71,7 +63,7 @@ Even though Zone 2 is low intensity, volume can still outpace recovery — espec
 
 **Weight loss stalling despite a calorie deficit.** Paradoxically, chronic overtraining raises cortisol, which promotes fat retention. If fat loss stalls when you add more cardio, the answer is usually less cardio and more recovery.
 
-**Resting heart rate creeping up.** A rising resting heart rate over several weeks is a reliable indicator of accumulated fatigue. Track it each morning before getting out of bed.
+**Resting heart rate creeping up.** A rising resting heart rate over several weeks is a reliable indicator of accumulated fatigue. Track it each morning before getting out of bed — the [resting heart rate calculator](/calculators/resting-heart-rate) gives you context for what's normal versus elevated for your age.
 
 ---
 
@@ -99,7 +91,7 @@ The placement of Zone 2 sessions relative to lifting matters, though it is less 
 3. **After lifting on the same session** — acceptable for shorter sessions (20–25 min)
 4. **Before lifting** — avoid this; it pre-fatigues the muscles you are about to train
 
-The most common sustainable structure for hybrid athletes:
+The most common sustainable structure for hybrid athletes pairs well with the [4-day upper/lower split](/articles/4-day-upper-lower-split):
 
 | Day | Training |
 |-----|----------|
@@ -133,3 +125,10 @@ The 10% rule applies here: never increase total weekly cardio volume by more tha
 For most people lifting 3 days per week, 2–3 Zone 2 sessions totalling 90–150 minutes per week is the right range. Below 90 minutes and you miss meaningful aerobic adaptations. Above 180 minutes and you start competing with strength recovery in most programmes.
 
 Start at the lower end, monitor your lifting performance, and add volume only when your strength is progressing consistently. The goal is the minimum effective dose — enough cardio to get the benefits, not so much that it costs you the gains.
+
+---
+
+*→ [Zone 2 Cardio: Why Should You Be Doing It?](/articles/zone-2-cardio-beginners-guide)*
+*→ [4-Day Upper/Lower Split](/articles/4-day-upper-lower-split)*
+*→ [Heart Rate Zones Calculator](/calculators/heart-rate-zones)*
+*→ [Resting Heart Rate Calculator](/calculators/resting-heart-rate)*
