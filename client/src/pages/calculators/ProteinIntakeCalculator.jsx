@@ -35,7 +35,7 @@ export default function ProteinIntakeCalculator() {
   return (
     <>
       <Helmet>
-        <title>Protein Intake Calculator — How Much Protein Do You Need? | LiftAndBurn</title>
+        <title>Protein Intake Calculator — How Much Protein Do You Need?</title>
         <meta name="description" content="Calculate exactly how much protein you need per day based on your bodyweight and goal — muscle building, fat loss, maintenance, or athletic performance." />
         <link rel="canonical" href="https://liftandburn.fit/calculators/protein-intake" />
       </Helmet>
@@ -86,6 +86,13 @@ export default function ProteinIntakeCalculator() {
             )}
 
             <div className="calc-instructions">
+              <h2>About this calculator</h2>
+              <p>The protein calculator estimates the daily amount of dietary protein adults need based on bodyweight and training goal — whether that's general health, fat loss, muscle building, or athletic performance. It's grounded in the ranges commonly cited in sports nutrition research for resistance-trained individuals.</p>
+
+              <h2>What is protein, and why does it matter?</h2>
+              <p>Protein is one of the three macronutrients (alongside carbohydrates and fat) and is made up of amino acids — the building blocks your body uses to repair and build muscle tissue, produce enzymes and hormones, support immune function, and maintain healthy hair, skin, and nails. Unlike carbohydrates and fat, the body doesn't store protein for later use in any meaningful way, which is why consistent daily intake matters more than it does for the other macronutrients.</p>
+              <p>For anyone doing resistance training, protein is particularly important because it supplies the amino acids needed for muscle repair and growth after a workout. Without enough of it, training still creates the stimulus for muscle growth, but the body lacks the raw material to act on that stimulus effectively.</p>
+
               <h2>How much protein do you actually need?</h2>
               <p>The widely cited range for resistance-trained individuals is <strong>0.7–1.0g of protein per pound of bodyweight</strong> (roughly 1.6–2.2g per kg). Within that range:</p>
               <p><strong>0.7g/lb</strong> is sufficient for general health and maintenance — adequate for muscle preservation without active training goals.</p>
@@ -96,7 +103,16 @@ export default function ProteinIntakeCalculator() {
               <p>Research shows diminishing returns above roughly 0.8g per pound for muscle protein synthesis. Eating significantly more than your target won't accelerate muscle growth further — the excess is simply used for energy like any other macronutrient.</p>
 
               <h2>How to hit your protein target</h2>
-              <p>Spreading protein across 3–4 meals (roughly 25–40g per meal) appears to be more effective for muscle protein synthesis than consuming it all in one or two large meals. Good sources include chicken breast, eggs, Greek yogurt, whey protein, fish, and lean beef.</p>
+              <p>Spreading protein across 3–4 meals (roughly 25–40g per meal) appears to be more effective for muscle protein synthesis than consuming it all in one or two large meals. Good sources to build meals around include:</p>
+              <ul>
+                <li><strong>Chicken breast</strong> — lean, versatile, around 31g protein per 100g</li>
+                <li><strong>Eggs</strong> — complete amino acid profile, around 6g protein per egg</li>
+                <li><strong>Greek yogurt</strong> — convenient and high in protein relative to volume, around 10g per 100g</li>
+                <li><strong>Whey protein</strong> — fast-absorbing, useful for hitting targets without extra cooking, typically 20–25g per scoop</li>
+                <li><strong>Fish</strong> — salmon, tuna, and white fish all offer 20g+ protein per 100g along with beneficial fats</li>
+                <li><strong>Lean beef</strong> — around 26g protein per 100g, also a good source of iron and B12</li>
+              </ul>
+              <p>For a full, sortable list of high protein foods with exact values per serving, see the <Link to="/high-protein-foods">high protein foods page</Link>.</p>
 
               <div className="calc-links">
                 <Link to="/high-protein-foods">High Protein Foods →</Link>
