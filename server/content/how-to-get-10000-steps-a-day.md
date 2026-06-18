@@ -1,5 +1,5 @@
 ---
-title: "How to Get 10,000 Steps a Day: 15 Simple Ways to Walk More"
+title: "How to Walk 10,000 Steps a Day"
 slug: how-to-get-10000-steps-a-day
 description: "Struggling to hit 10,000 steps a day? These 15 practical strategies work for busy people, desk workers, and beginners — no gym required."
 category: cardio
@@ -8,6 +8,8 @@ author: LiftAndBurn
 publishedAt: 2026-05-27
 featured: true
 ---
+
+The most reliable way to reach 10,000 steps a day is to combine one dedicated 20-30 minute walk with small, repeatable habits spread through the rest of your day — taking stairs, walking on phone calls, parking further away, and a short walk after meals. Most people fall short not because 10,000 steps is unreasonable, but because they rely on a single walk to get there instead of stacking several smaller ones.
 
 ## Why 10,000 steps a day actually matters
 
@@ -73,7 +75,7 @@ The most reliable way to hit 10,000 steps consistently is to anchor a dedicated 
 
 A 30-minute walk at a brisk pace covers approximately 3,000–3,500 steps. Combined with your background daily movement, this single habit makes 10,000 steps achievable for most people.
 
-If you want to maximise calorie burn during this walk, use the **12-3-30 protocol** — treadmill set to 12% incline, 3 mph, for 30 minutes. This burns 300–400 calories for a 75kg person and is one of the most efficient fat-burning cardio methods available. See our full [12-3-30 guide](/articles/12-3-30-workout-does-it-work) for details.
+If you want to maximise calorie burn during this walk, use the [12-3-30 protocol](/articles/12-3-30-workout-does-it-work) — treadmill set to 12% incline, 3 mph, for 30 minutes. This is one of the most efficient fat-burning cardio methods available, and the [treadmill calorie calculator](/calculators/treadmill-calorie-calculator) will give you an exact figure for your weight and pace.
 
 ### 8. Walk your dog — or offer to walk a neighbour's
 
@@ -137,7 +139,7 @@ The exact number depends on your body weight and walking pace. Here are realisti
 | 90 kg (198 lbs) | 415–475 kcal |
 | 100 kg (220 lbs) | 460–530 kcal |
 
-Use our [Steps to Calories Calculator](/calculators/steps) to find your exact number based on your weight and pace.
+Use the [steps to calories calculator](/calculators/steps-to-calories) to find your exact number based on your weight and pace.
 
 ---
 
@@ -152,6 +154,15 @@ Use our [Steps to Calories Calculator](/calculators/steps) to find your exact nu
 **Month 3+:** Body composition changes become visible, especially combined with reasonable nutrition. Fat loss of 0.5–1kg per month from walking alone is realistic for most people.
 
 **Long term:** Research following people over years consistently shows that higher daily step counts correlate with significantly lower rates of cardiovascular disease, type 2 diabetes, depression, and all-cause mortality.
+
+---
+
+---
+
+*→ [Best Treadmill Workout to Burn Calories: Incline Walking](/articles/treadmill-incline-walking-burn-calories)*
+*→ [The 12-3-30 Workout: Does It Actually Work?](/articles/12-3-30-workout-does-it-work)*
+*→ [How Many Calories Does Walking Burn?](/articles/how-many-calories-does-walking-burn)*
+*→ [Steps to Calories Calculator](/calculators/steps-to-calories)*
 
 ---
 
