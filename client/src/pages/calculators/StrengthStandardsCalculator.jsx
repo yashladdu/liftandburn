@@ -24,7 +24,7 @@ const STANDARDS = {
     grip:     [20,   27,   33,   38,   44   ],
   },
 };
-const LEVELS = ['Beginner','Novice','Intermediate','Advanced','Elite'];
+const LEVELS = ['Beginner ★','Novice ★★','Intermediate ★★★','Advanced ★★★★','Elite ★★★★★'];
 const LEVEL_COLOURS = ['#888','#4a9eff','#4ade80','#f59e0b','#D85A30'];
 
 const LIFTS = [
@@ -80,13 +80,16 @@ export default function StrengthStandardsCalculator() {
   return (
     <>
       <Helmet>
-        <title>Strength Standards Calculator — How Strong Are You? | LiftAndBurn</title>
+        <title>Strength Standards Calculator — How Strong Are You?</title>
         <meta name="description" content="Find out where your lifts rank — beginner to elite. Strength standards for squat, bench, deadlift, overhead press, pull-ups, and grip strength relative to bodyweight." />
         <link rel="canonical" href="https://liftandburn.fit/calculators/strength-standards" />
       </Helmet>
       <div className="calc-page container">
         <div className="calc-breadcrumb"><Link to="/calculators">Calculators</Link> › Strength Standards</div>
         <h1 className="calc-page__title">Strength Standards Calculator</h1>
+        <p className="calc-page__intro">
+          Enter your one-rep max for compound lifts like squat, bench press, and deadlift and we'll rank you against other lifters at your bodyweight — from Beginner ★ through to Elite ★★★★★.
+        </p>
         <div className="calc-layout">
           <div className="calc-main">
             <div className="wd-toggles">
@@ -176,15 +179,36 @@ export default function StrengthStandardsCalculator() {
             )}
 
             <div className="calc-instructions">
-              <h2>How strength standards work</h2>
-              <p>Strength standards express lift performance as a multiple of bodyweight, allowing fair comparison between people of different sizes. A 1.5× bodyweight squat means squatting 1.5 times your own bodyweight for one rep.</p>
-              <p>Standards vary between sources. These are based on widely used community benchmarks and ExRx data. They're useful as orientation, not as hard targets — context matters (training age, lifting style, individual leverages).</p>
+              <h2>What are strength standards?</h2>
+              <p>Strength standards give you a realistic idea of what's typically achievable at different stages of training, taking into account body size and relative strength. They're a useful checkpoint on your fitness journey — not a rigid pass/fail test, and not something to treat as an absolute ceiling.</p>
+              <p>A few things worth understanding before reading too much into your result:</p>
+              <ul>
+                <li><strong>They're relative, not absolute.</strong> Standards express lift performance as a multiple of bodyweight, so a 100kg person and a 70kg person can be ranked fairly against each other even though their absolute numbers are different.</li>
+                <li><strong>Genetics play a role.</strong> Some people build strength more easily due to muscle fibre composition, bone structure, and limb proportions. Your ceiling is your own — these standards reflect population averages, not your personal limit.</li>
+                <li><strong>Age is a factor.</strong> Strength tends to peak in the late 20s to early 30s and gradually declines with age. A 50-year-old at "Intermediate" is performing at a higher relative level than a 25-year-old at the same rating.</li>
+                <li><strong>Leverages matter.</strong> Longer arms make the deadlift mechanically easier and the bench press harder. A longer torso helps the squat. These anatomical differences explain a lot of variation between lifters at the same training level.</li>
+              </ul>
+              <p>For example: a taller, heavier man will typically out-lift a smaller man in absolute terms — but relative to bodyweight, a lighter lifter can absolutely rank higher. Similarly, someone with long arms may find the deadlift comes naturally but struggle on bench press, purely due to the mechanics of the lift rather than overall strength.</p>
+
+              <h2>How the levels work</h2>
+              <p><strong>Beginner ★</strong> — achievable in the first few months of consistent training. These numbers require no special technique or programming, just showing up and lifting.</p>
+              <p><strong>Novice ★★</strong> — typically reached after 6–12 months of consistent training with progressive overload.</p>
+              <p><strong>Intermediate ★★★</strong> — requires 1–3 years of structured training. Most recreational lifters reach this range eventually.</p>
+              <p><strong>Advanced ★★★★</strong> — 3–5+ years of dedicated training. Reached by a small minority of consistent lifters.</p>
+              <p><strong>Elite ★★★★★</strong> — competitive-level strength. Represents the top end of what's achievable naturally for most people.</p>
+
+              <h2>How strength standards work technically</h2>
+              <p>Standards express lift performance as a multiple of bodyweight, allowing fair comparison between people of different sizes. A 1.5× bodyweight squat means squatting 1.5 times your own bodyweight for one rep. These are based on widely used community benchmarks and ExRx data — useful as orientation, not as hard targets.</p>
+
               <h2>Pull-ups and grip strength</h2>
-              <p>Pull-ups are expressed as reps at bodyweight. Grip strength is measured with a hand dynamometer in kilograms — a useful health and longevity marker. Grip strength correlates strongly with overall health outcomes in long-term studies.</p>
+              <p>Pull-ups are expressed as reps at bodyweight — one of the most honest measures of relative upper body strength. Grip strength is measured with a hand dynamometer in kilograms and is a surprisingly strong predictor of overall health and longevity, independent of other fitness metrics.</p>
+
               <div className="calc-links">
-                <Link to="/calculators/one-rep-max">One Rep Max →</Link>
+                <Link to="/calculators/one-rep-max">One Rep Max Calculator →</Link>
                 <span>|</span>
                 <Link to="/calculators/wilks-dots">Wilks / DOTS</Link>
+                <span>|</span>
+                <Link to="/articles/how-to-build-muscle">How to Build Muscle</Link>
                 <span>|</span>
                 <Link to="/calculators">All Calculators</Link>
               </div>
