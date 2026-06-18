@@ -1,12 +1,16 @@
 ---
 title: "How Many Calories Does Walking Burn? (The Honest Answer)"
 slug: how-many-calories-does-walking-burn
-description: "How many calories walking actually burns depends on your weight, speed, and incline — not the number your treadmill shows. Here's what the science says."
+description: "How many calories does 10,000 steps actually burn? It depends on your weight, speed, and incline — not the number your treadmill shows. Here's what the science says."
 category: cardio
 tags: [walking, calories, fat-loss, treadmill, steps, NEAT, cardio]
 author: LiftAndBurn
 publishedAt: 2026-06-09
 featured: true
+---
+
+For most adults, 10,000 steps burns roughly 300–500 calories — the exact number depends heavily on your weight, pace, and whether you're walking on flat ground or an incline. A 60kg person walking at a moderate pace will land toward the lower end of that range; a 100kg person walking briskly will land well above it. Here's exactly how that number is calculated, and why your treadmill's display is probably wrong.
+
 ---
 
 ## Why your treadmill is lying to you
@@ -30,6 +34,14 @@ Three variables drive how many calories walking burns:
 **Incline** — the most underestimated variable. Every percentage point of incline adds meaningful calorie burn. This is why incline walking on a treadmill is so effective — you can dramatically increase calorie expenditure without increasing speed or joint impact.
 
 Duration is simply a multiplier on top of these three factors.
+
+---
+
+## How the calculation actually works
+
+The standard formula used in exercise science is built on METs (Metabolic Equivalents of Task) — a measure of how many times harder an activity is than sitting still. Moderate walking at around 3mph sits at roughly 3.3 METs; brisk walking closer to 4mph sits around 4.3 METs.
+
+The formula itself: **Calories = METs × bodyweight (kg) × duration (hours)**. This is the same underlying approach used by the ACSM equations and most fitness trackers — they just add incline and exact speed as additional inputs for more precision.
 
 ---
 
@@ -61,13 +73,15 @@ The difference is stark. At 80kg, flat walking burns 160 calories in 30 minutes.
 
 ---
 
-## How many calories does 10,000 steps burn?
+## How many calories do 10,000 steps actually burn?
 
-The honest answer: it depends entirely on your weight and pace, but a rough estimate for most people is **300–500 calories** for 10,000 steps.
+The honest answer: it depends entirely on your weight and pace, but a reasonable estimate for most adults is **300–500 calories** for 10,000 steps.
 
-At an average pace of around 3mph, 10,000 steps covers approximately 7–8km and takes roughly 80–90 minutes for most people. At 80kg that's around 400–450 calories.
+At an average pace of around 3mph, 10,000 steps covers roughly 7–8km and takes about 80–90 minutes for most people. At 80kg that works out to approximately 400–450 calories; at 60kg, closer to 300; at 100kg, closer to 500.
 
-What matters more than the 10,000 number is that steps accumulate throughout the day. 10,000 steps broken across multiple walks burns the same as 10,000 steps done in one session. Your body doesn't know the difference.
+Worth knowing: the 10,000-step target isn't based on a specific scientific threshold — it originated from a 1960s pedometer marketing campaign in Japan. Research has since found meaningful health benefits at lower step counts too, so it's a useful round-number target rather than a hard cutoff you need to hit exactly.
+
+What matters more than the precise number is that steps accumulate throughout the day. 10,000 steps broken across multiple walks burns the same as 10,000 steps done in one session. Your body doesn't know the difference. You can get a personalised figure using your own weight and pace with the [steps to calories calculator](/calculators/steps-to-calories).
 
 ---
 
@@ -77,7 +91,7 @@ Per minute, running burns more. Per kilometre, they're closer than most people t
 
 The reason: running is less efficient than walking, so you burn more energy per step. But at the same speed, walking has a lower burn rate than running because the mechanics are different.
 
-The more relevant comparison for most people isn't walking vs running — it's sustainable daily activity vs unsustainable bursts. Walking every day burns far more total calories per week than running twice a week and being sedentary the rest of the time.
+The more relevant comparison for most people isn't walking vs running — it's sustainable daily activity vs unsustainable bursts. Walking every day burns far more total calories per week than running twice a week and being sedentary the rest of the time. See the [full incline walking vs running comparison](/articles/incline-walking-vs-running) for the complete picture.
 
 Incline walking specifically closes the gap with running significantly. At 12% incline, the cardiovascular demand and calorie burn of walking at 3mph is comparable to jogging — with virtually zero joint impact.
 
@@ -94,7 +108,7 @@ Practical ways to increase walking calorie burn:
 - Take a 10–15 minute walk after meals — this also improves blood sugar control.
 - Park further away, take stairs, get off a stop early. These add up.
 
-For accurate calorie calculations based on your specific weight, speed, and incline, use the [treadmill calorie calculator](/calculators/treadmill-calorie-calculator). For step-based estimates, the [steps to calories calculator](/calculators/steps) uses your weight and pace to give a personalised figure.
+For accurate calorie calculations based on your specific weight, speed, and incline, use the [treadmill calorie calculator](/calculators/treadmill-calorie-calculator). For step-based estimates, the [steps to calories calculator](/calculators/steps-to-calories) uses your weight and pace to give a personalised figure.
 
 ---
 
@@ -107,6 +121,7 @@ At 12% incline, a 45-minute walk at 80kg burns around 420–450 calories — com
 ---
 
 *→ [How to Get 10,000 Steps a Day](/articles/how-to-get-10000-steps-a-day)*
-*→ [Switched from Running to Incline Walking](/articles/treadmill-incline-walking-burn-calories)*
+*→ [Best Treadmill Workout to Burn Calories: Incline Walking](/articles/treadmill-incline-walking-burn-calories)*
+*→ [Incline Walking vs Running](/articles/incline-walking-vs-running)*
 *→ [Treadmill Calorie Calculator](/calculators/treadmill-calorie-calculator)*
-*→ [Steps to Calories Calculator](/calculators/steps)*
+*→ [Steps to Calories Calculator](/calculators/steps-to-calories)*
