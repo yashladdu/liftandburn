@@ -41,9 +41,35 @@ export default function CalorieDeficitCalculator() {
   return (
     <>
       <Helmet>
-        <title>Calorie Deficit Calculator — How Long to Lose Weight | LiftAndBurn</title>
+        <title>Calorie Deficit Calculator — How Long to Lose Weight</title>
         <meta name="description" content="Calculate exactly how long it will take to reach your goal weight based on your daily calorie deficit. Shows weeks, months, and your target date." />
         <link rel="canonical" href="https://liftandburn.fit/calculators/calorie-deficit" />
+        <script type="application/ld+json">{JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How can I lose fat quickly?",
+              "acceptedAnswer": { "@type": "Answer", "text": "The fastest sustainable approach is a 500–750 calorie daily deficit combined with high protein intake and resistance training to preserve muscle. This produces roughly 0.45–0.7kg of fat loss per week." }
+            },
+            {
+              "@type": "Question",
+              "name": "Which body part loses fat first?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Fat loss order is largely determined by genetics and sex. Men typically lose fat first from the abdomen and face; women often from the arms and legs first. Spot reduction is a myth — fat comes off the whole body based on overall calorie balance." }
+            },
+            {
+              "@type": "Question",
+              "name": "What are signs your body is burning fat?",
+              "acceptedAnswer": { "@type": "Answer", "text": "The most reliable sign is a consistent downward trend in your weekly average weight over 2–4 weeks. Other signs include clothes fitting looser, improved energy levels, and gradual reductions in measurements. Day-to-day scale fluctuations of 1–2kg are normal." }
+            },
+            {
+              "@type": "Question",
+              "name": "What foods help burn fat faster?",
+              "acceptedAnswer": { "@type": "Answer", "text": "No food directly burns fat. Fat loss comes from a calorie deficit. High-protein foods support fat loss by preserving muscle, keeping you fuller, and having a higher thermic effect. High-fibre foods similarly support satiety without adding many calories." }
+            }
+          ]
+        })}</script>
       </Helmet>
       <div className="calc-page container">
         <div className="calc-breadcrumb"><Link to="/calculators">Calculators</Link> › Calorie Deficit</div>
@@ -138,12 +164,27 @@ export default function CalorieDeficitCalculator() {
               <p><strong>500 kcal:</strong> The standard recommendation. ~0.45 kg/week, sustainable for most people.</p>
               <p><strong>750 kcal:</strong> Aggressive but manageable for most people with a lot to lose. High protein intake becomes critical.</p>
               <p><strong>1,000+ kcal:</strong> Very aggressive. Higher muscle loss risk. Not recommended for extended periods.</p>
+
+              <h2>Frequently Asked Questions</h2>
+
+              <h3>How can I lose fat quickly?</h3>
+              <p>The fastest sustainable approach is a 500–750 calorie daily deficit combined with high protein intake (0.8g per pound of bodyweight) and resistance training to preserve muscle. This produces roughly 0.45–0.7kg of fat loss per week. "Faster" approaches exist but rapidly increase muscle loss risk and are rarely sustainable — the weight comes back. Consistency over 8–12 weeks beats crash approaches every time.</p>
+
+              <h3>Which body part loses fat first?</h3>
+              <p>Fat loss order is largely determined by genetics and sex, not by which exercises you do. Men typically lose fat first from the abdomen and face; women often from the arms and legs first, with abdominal and hip fat tending to be more stubborn. Spot reduction — the idea that you can target fat loss in a specific area by training that area — is a myth. Fat comes off the whole body based on overall calorie balance, in an order your genetics determine.</p>
+
+              <h3>What are signs your body is burning fat?</h3>
+              <p>The most reliable sign is a consistent downward trend in your weekly average weight over 2–4 weeks. Other signs include clothes fitting looser (even when the scale hasn't moved much, due to water weight fluctuations), improved energy levels after the initial adaptation period, and a gradual reduction in measurements. Day-to-day scale fluctuations of 1–2kg are normal and are caused by water, food, and digestion — your weekly average is what matters.</p>
+
+              <h3>What foods help burn fat faster?</h3>
+              <p>No food directly "burns fat." Fat loss comes from a calorie deficit, not from any specific food. That said, high-protein foods (chicken, eggs, fish, Greek yogurt) support fat loss by preserving muscle during a deficit, keeping you fuller for longer, and having a higher thermic effect — meaning your body burns more calories digesting protein than it does digesting carbs or fat. High-fibre foods similarly support satiety without adding many calories. See the <Link to="/high-protein-foods">high protein foods guide</Link> for specific options.</p>
+
               <div className="calc-links">
                 <Link to="/calculators/tdee">Find your TDEE →</Link>
                 <span>|</span>
                 <Link to="/calculators/macros">Macro Calculator</Link>
                 <span>|</span>
-                <Link to="/articles/why-the-scale-lies-measure-fat-loss">Why the Scale Lies</Link>
+                <Link to="/high-protein-foods">High Protein Foods</Link>
               </div>
             </div>
           </div>
