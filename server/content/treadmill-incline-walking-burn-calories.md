@@ -194,3 +194,19 @@ The treadmill is not boring. You have just been using it wrong.
 *→ [Incline Walking vs Running](/articles/incline-walking-vs-running)*
 *→ [Zone 2 Cardio When You Lift Weights](/articles/zone-2-cardio-when-you-lift-weights)*
 *→ [Treadmill Calorie Calculator](/calculators/treadmill-calorie-calculator)*
+
+---
+
+## Frequently Asked Questions
+
+### How to burn 1,000 calories in 1 hour?
+
+Burning 1,000 calories in one hour is genuinely difficult and depends heavily on your body weight — a heavier person burns more calories at the same intensity. Running at a hard pace (around 10–12 km/h) gets a 90kg person close to that figure. Incline walking won't reach 1,000 in 60 minutes, but a 90kg person walking at 15% incline for 60 minutes burns around 700–750 calories — which is both more sustainable and repeatable daily. Over a week, consistent daily incline walking burns more total calories than occasional high-intensity sessions you can't recover from.
+
+### What foods help burn fat faster?
+
+No food directly burns fat — fat loss comes from a calorie deficit, not from specific foods. That said, high-protein foods (chicken, eggs, fish, Greek yogurt) support fat loss by preserving muscle during a deficit, keeping you fuller for longer, and having a higher thermic effect — your body burns more energy digesting protein than it does digesting carbs or fat. The best dietary strategy to pair with daily treadmill work is adequate protein and a modest calorie deficit. See the [high protein foods guide](/high-protein-foods) for the best sources.
+
+### Is it better to walk or run on a treadmill to burn fat?
+
+Walking at a steep incline burns comparable calories to running at a moderate pace — but with a fraction of the joint impact and recovery cost, meaning you can do it every day rather than taking rest days. For most people looking to maximise total weekly calorie burn from cardio, daily incline walking outperforms three or four running sessions that require recovery days in between. See the full [incline walking vs running comparison](/articles/incline-walking-vs-running) for the detailed calorie breakdown.
