@@ -5,7 +5,7 @@ description: "How many sets do you actually need to build muscle? The case for l
 category: weightlifting
 tags: [volume, sets, hypertrophy, low-volume, HIT, progressive-overload, muscle-building, intensity]
 author: LiftAndBurn
-publishedAt: 2026-06-15
+publishedAt: 2026-06-19
 featured: true
 ---
 
