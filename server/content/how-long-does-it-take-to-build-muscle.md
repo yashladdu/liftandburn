@@ -5,7 +5,7 @@ description: "How long it actually takes to build muscle — realistic timelines
 category: weightlifting
 tags: [muscle-building, hypertrophy, beginner, intermediate, advanced, realistic-expectations, progressive-overload]
 author: LiftAndBurn
-publishedAt: 2026-06-15
+publishedAt: 2026-06-22
 featured: true
 ---
 
