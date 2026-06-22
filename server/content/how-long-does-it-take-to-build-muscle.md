@@ -9,7 +9,7 @@ publishedAt: 2026-06-22
 featured: true
 ---
 
-Most people can expect to gain 1–2kg of muscle per month in their first year of training, 0.5–1kg per month in their second year, and around 1–2kg per year after that. These numbers are lower than most fitness content suggests and higher than most people achieve in practice — because most people either train inconsistently, eat insufficient protein, or both.
+Most people can expect to gain around 1kg (2 lbs) of muscle per month in their first year of proper training, around 0.5kg (1 lb) per month in their second year, and roughly 0.25kg (0.5 lbs) per month by year three. By year four and beyond, monthly gains become too small to meaningfully measure. These figures come from Lyle McDonald's widely cited muscle gain model — one of the most grounded frameworks for setting realistic expectations as a natural lifter.
 
 Here's what the evidence shows, why the rate slows down, and what actually controls how fast you build muscle.
 
@@ -27,31 +27,31 @@ That signal is [progressive overload](/articles/progressive-overload-for-beginne
 
 ## Realistic muscle gain rates by training level
 
-These are evidence-based estimates for natural lifters training consistently with adequate protein and progressive overload. They represent what is achievable under good conditions, not what the average person actually achieves.
+These figures are based on Lyle McDonald's widely cited muscle gain model — one of the most referenced frameworks in natural bodybuilding for setting realistic expectations. They represent maximum potential under good conditions, not average results.
 
-**Beginner (0–1 year of consistent training)**
-Monthly gain: 1–2kg of muscle
-Annual gain: 10–15kg (first year only)
+**Year 1 of proper training**
+Monthly gain: ~1kg (2 lbs) of muscle
+Annual gain: 9–11kg (20–25 lbs)
 
-The beginner phase is the most productive period of your entire lifting career. Your muscles are responding to a stimulus they have never experienced, your nervous system is adapting rapidly, and the gap between where you are and your genetic potential is enormous. Beginners can sometimes gain strength and muscle simultaneously even in a slight calorie deficit — a phenomenon called beginner gains that disappears as training age increases.
+The first year is the most productive of your entire lifting career. Your muscles are responding to a stimulus they have never experienced, your nervous system is adapting rapidly, and the gap between where you are and your genetic potential is enormous. Beginners can sometimes gain strength and muscle simultaneously even in a slight calorie deficit — a phenomenon called beginner gains that disappears as training age increases.
 
-This phase ends faster than most people want it to. Once you have trained consistently for 9–12 months, you are no longer a beginner regardless of how much muscle you have built.
+**Year 2 of proper training**
+Monthly gain: ~0.5kg (1 lb) of muscle
+Annual gain: 4.5–5.5kg (10–12 lbs)
 
-**Intermediate (1–3 years of consistent training)**
-Monthly gain: 0.5–1kg of muscle
-Annual gain: 5–7kg
+Progress slows significantly in the second year. Your body has adapted to the basic training stimulus and requires more deliberate programming to continue growing. This is where most people plateau if they continue doing the same programme they used as a beginner.
 
-Progress slows significantly in the intermediate phase. Your body has adapted to the basic training stimulus and requires more deliberate programming — periodisation, double progression, and careful exercise selection — to continue growing. This is where most people plateau if they continue doing the same programme they used as a beginner.
+**Year 3 of proper training**
+Monthly gain: ~0.25kg (0.5 lbs) of muscle
+Annual gain: 2–3kg (5–6 lbs)
 
-The intermediate phase is also where consistency matters most. Six months of inconsistent training at intermediate level produces worse results than four months of consistent training, because the adaptations built in one phase need to be maintained and built upon rather than repeatedly re-established from scratch.
+Growth in year three is meaningful but noticeably slower. Training needs to become more sophisticated — periodisation, double progression, and careful exercise selection — to extract continued adaptation. Consistency matters more than ever because breaks cost more relative to what's left to gain.
 
-**Advanced (3+ years of consistent training)**
-Monthly gain: 0.1–0.25kg of muscle
-Annual gain: 1–2kg
+**Year 4+**
+Monthly gain: barely calculable
+Annual gain: 1–1.5kg (2–3 lbs)
 
-Advanced lifters are operating close to their genetic ceiling. The rate of muscle gain drops dramatically, and training needs to be progressively more sophisticated to extract the remaining potential. Many advanced natural lifters are satisfied to maintain their physique and pursue strength goals rather than trying to add more muscle mass.
-
-This is not a failure — it reflects the reality that there is a ceiling on how much muscle the human body can carry at a given height and bone structure, and that ceiling is lower than most people assume from looking at enhanced athletes.
+Advanced lifters are operating close to their genetic ceiling. McDonald's model bluntly describes this as "not worth calculating" on a monthly basis. At this stage, strength progress and physique maintenance become the primary goals for most natural lifters, with muscle gain measured across years rather than months.
 
 ---
 
@@ -59,7 +59,7 @@ This is not a failure — it reflects the reality that there is a ceiling on how
 
 **Training intensity.** The single most important factor that most people underestimate. Sets taken to 1 rep in reserve produce more growth signal than sets stopped 4–5 reps short of failure. You can do all the right things in terms of volume and nutrition, but if your sets are not genuinely hard, progress will be slow. See the breakdown in [2 sets per exercise: does low volume training actually work](/articles/low-volume-training-2-sets).
 
-**Protein intake.** Muscle is built from protein. Without adequate daily protein — roughly 0.7–0.8g per pound of bodyweight (1.6–1.8g per kg) — the training stimulus is there but the raw material to build with is not. Use the [protein intake calculator](/calculators/protein-intake) to find your daily target. This is the most commonly underestimated nutritional variable.
+**Protein intake.** Muscle is built from protein. Without adequate daily protein — roughly 1.6–1.8g per kg of bodyweight (0.7–0.8g per lb) — the training stimulus is there but the raw material to build with is not. Use the [protein intake calculator](/calculators/protein-intake) to find your daily target. This is the most commonly underestimated nutritional variable.
 
 **Calorie surplus.** Building muscle requires energy above maintenance. A modest surplus of 200–400 calories above your [TDEE](/calculators/tdee) is sufficient to support muscle growth while minimising unnecessary fat gain. Larger surpluses do not build muscle faster — they just add more fat alongside the muscle.
 
@@ -99,7 +99,7 @@ Training age is rarely visible. The person with an impressive physique may have 
 
 ## The honest bottom line
 
-Muscle building is slow. The rates above — 1–2kg per month for beginners, 0.5–1kg for intermediates, 1–2kg per year for advanced lifters — are what is achievable under genuinely good conditions. Most people achieve less because consistency, nutrition, and training intensity are harder to maintain in practice than in theory.
+Muscle building is slow. The rates above — around 1kg per month in year one, 0.5kg in year two, 0.25kg by year three, and barely calculable after that — are the ceiling under genuinely good conditions. Most people achieve less because consistency, nutrition, and training intensity are harder to maintain in practice than in theory.
 
 The implication is not that it is not worth doing. It is that the goal should be a sustained process over years, not a dramatic transformation in weeks. People who approach training with realistic expectations tend to stick with it long enough to see real results. People who expect to look like a fitness model in three months tend to quit when that does not happen.
 
