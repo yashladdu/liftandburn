@@ -5,7 +5,7 @@ description: "Sleep is when muscle actually gets built. Here's what happens duri
 category: sleep
 tags: [sleep, recovery, muscle-growth, hypertrophy, hormones, performance, strength]
 author: LiftAndBurn
-publishedAt: 2026-06-20
+publishedAt: 2026-06-28
 featured: true
 ---
 
