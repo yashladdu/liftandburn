@@ -30,6 +30,24 @@ const META = {
     seoTitle: 'Nutrition Articles — Protein, Macros & Diet for Training',
     desc:     'Fuelling your training: protein, macros, calorie targets, and everything in between.',
   },
+  mindset: {
+    icon:     '🧠',
+    title:    'Mind & Habits',
+    seoTitle: 'Mind & Habits — Consistency, Discipline & Mental Performance',
+    desc:     'Building habits that stick, staying consistent, and the psychology of long-term progress.',
+  },
+  sleep: {
+    icon:     '😴',
+    title:    'Sleep & Recovery',
+    seoTitle: 'Sleep & Recovery Articles — Rest, Recovery & Performance',
+    desc:     'How sleep and recovery affect muscle growth, fat loss, and training performance.',
+  },
+  lifestyle: {
+    icon:     '⚡',
+    title:    'Lifestyle',
+    seoTitle: 'Lifestyle Articles — Self-Improvement, Discipline & Daily Habits',
+    desc:     'Applying the principles of good training to the rest of your life — discipline, habits, and self-improvement.',
+  },
 };
 
 export default function CategoryPage() {
@@ -49,10 +67,6 @@ export default function CategoryPage() {
 
   return (
     <>
-      {/*
-       * Helmet always mounted — title and canonical derived from URL param,
-       * available immediately without waiting for the API response.
-       */}
       <Helmet>
         <title>{`${meta.seoTitle} | LiftAndBurn`}</title>
         <meta name="description" content={meta.desc} />

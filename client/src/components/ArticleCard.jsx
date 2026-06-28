@@ -6,6 +6,9 @@ const CATEGORY_ICONS = {
   cardio:        '🏃',
   recomp:        '📈',
   nutrition:     '🥩',
+  mindset:       '🧠',
+  sleep:         '😴',
+  lifestyle:     '⚡',
   general:       '📄',
 };
 

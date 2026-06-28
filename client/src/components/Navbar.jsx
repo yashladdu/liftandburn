@@ -6,6 +6,9 @@ const ARTICLES_DROPDOWN = [
   { to: '/category/weightlifting', label: 'Weightlifting' },
   { to: '/category/cardio',        label: 'Cardio' },
   { to: '/category/recomp',        label: 'Body Recomp' },
+  { to: '/category/mindset',       label: 'Mind & Habits' },
+  { to: '/category/sleep',         label: 'Sleep & Recovery' },
+  { to: '/category/lifestyle',     label: 'Lifestyle' },
 ];
 
 const EXERCISES_DROPDOWN = [

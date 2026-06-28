@@ -5,7 +5,16 @@ import { useFetch } from '../hooks/useFetch';
 import ArticleCard from '../components/ArticleCard';
 import './ListPage.css';
 
-const CATEGORIES = ['all', 'weightlifting', 'cardio', 'recomp', 'nutrition'];
+const CATEGORIES = [
+  { id: 'all',          label: 'All' },
+  { id: 'weightlifting', label: 'Weightlifting' },
+  { id: 'cardio',       label: 'Cardio' },
+  { id: 'recomp',       label: 'Body Recomp' },
+  { id: 'nutrition',    label: 'Nutrition' },
+  { id: 'mindset',      label: 'Mind & Habits' },
+  { id: 'sleep',        label: 'Sleep & Recovery' },
+  { id: 'lifestyle',    label: 'Lifestyle' },
+];
 
 export default function ArticlesListPage() {
   const [active, setActive] = useState('all');
@@ -20,7 +29,7 @@ export default function ArticlesListPage() {
       <Helmet>
         <title>All Articles — LiftAndBurn</title>
         <link rel="canonical" href="https://liftandburn.fit/articles" />
-        <meta name="description" content="Browse all training articles on weightlifting, cardio, and body recomp." />
+        <meta name="description" content="Browse all articles on strength, cardio, nutrition, habits, sleep, and self-improvement." />
       </Helmet>
 
       <div className="list-page container">
@@ -37,11 +46,11 @@ export default function ArticlesListPage() {
         <div className="list-filters">
           {CATEGORIES.map((c) => (
             <button
-              key={c}
-              className={`filter-btn ${active === c ? 'active' : ''}`}
-              onClick={() => setActive(c)}
+              key={c.id}
+              className={`filter-btn ${active === c.id ? 'active' : ''}`}
+              onClick={() => setActive(c.id)}
             >
-              {c === 'all' ? 'All' : c.charAt(0).toUpperCase() + c.slice(1)}
+              {c.label}
             </button>
           ))}
         </div>
